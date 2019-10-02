@@ -1,0 +1,25 @@
+vroot,s,h,"lot",,,videoc flash image rootname
+vauto,b,h,yes,,,auto generate image namess?
+vfexp,i,h,6,0,7,flash image exposure (0-7)
+vindex,i,h,1,0,9999,videoc image sequence number
+vpath,s,h,"/d1/pilot/video/",,,videoc output path
+vtemp,s,h,"/tmp/video",,,videoc temporary path
+vhost,s,h,"",,,video host
+vlogfile,s,h,"videoc.log",,,videoc logfile
+lastfile,s,h,"takepic.log",,,last picture logfile
+display,b,h,no,,,auto display images (doesn't work)?
+export,b,h,yes,,,auto export images to GIF?
+xroot,s,h,"video",,,gif export rootname
+xpath,s,h,"/home/pilot/public_html/",,,gif export path
+droot,s,h,"dark",,,dark image rootname
+vdexp,i,h,6,0,7,dark image exposure (0-7)
+dtemp,s,h,"/tmp/dark",,,videoc temporary path
+iroot,s,h,"ifrd",,,infrared image rootname
+viexp,i,h,0,0,7,infrared image exposure (0-7)
+itemp,s,h,"/tmp/infra",,,videoc temporary path
+delay,i,h,10,0,,delay between sequences (seconds)
+verb,i,h,2,0,99,verbosity
+version,s,h,"24SEP98",,,version date of this routine
+list1,*struct,h,"",,,
+mode,s,h,ql,,,
+

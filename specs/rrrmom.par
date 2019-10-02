@@ -1,0 +1,9 @@
+# RRRMOM.PAR - Parameter file for RRRMOM, xyz list to radial moments
+input,f,a,,,,input file
+numxyz,i,h,1000,1,,number of xyz input points
+outpix,i,h,128,4,2048,output image dimension (pixels)
+xmin,r,h,-70.0,,,minimum x-coordinate
+xmax,r,h,70.0,,,maximum x-coordinate
+ymin,r,h,-70.0,,,minimum y-coordinate
+ymax,r,h,70.0,,,maximum y-coordinate
+debug,b,h,no,,,

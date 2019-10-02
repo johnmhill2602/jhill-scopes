@@ -1,0 +1,114 @@
+.help chamber Feb91 scopes.aluminize
+.ih
+NAME
+chamber -- model the aluminum distribution from an array of filaments
+.ih
+USAGE
+chamber filaments output.imh
+.ih
+PARAMETERS
+.ls fifile = "string"
+File containing filament locations.
+.le
+.ls outimg = "string"
+Name of the output image.
+.le
+.ls gridcols = "int"
+Number of columns in the output image.
+.le
+.ls gridrows = "int"
+Number of rows in the output image.
+.le
+.ls dmirror = "real"
+Diameter of the mirror which fills the image (mm).
+.le
+.ls fnum = "real"
+Focal ratio of the mirror.  Use "0.0" for a flat.
+.le
+.ls asphere = "real"
+Conic constant of the mirror. (0=sphere, -1=parabola)
+.le
+.ls thick = "real"
+Mean thickness of the coat for autoscaling (nm).
+.le
+.ls load = "real"
+Filament load normalization (grams).
+.le
+.ls density = "real"
+Specific gravity of the coating.  Aluminum = 2.7
+.le
+.ls baffles = "bool"
+Baffle the filaments (y/n)?
+.le
+.ls bangle = "real"
+Filament baffle angle (degrees) (0 is no baffling).
+.le
+.ls verbosity = "int"
+Controls how much the program prints.
+.le
+.ih
+DESCRIPTION
+
+This task calculates the distribution of aluminum desposited on a
+mirror surface from a grid of evaporating filaments in a vacuum
+chamber.  It accounts for filament location, distance, and substrate
+angle.  At the user's option the angle of the aluminum emerging from
+point source filaments may be baffled.  Each filament contributes to
+the coating based on its distance from the surface element and the
+angle between the surface normal and the filament.
+
+The user specifies a list of filament coordinates, \fIfifile\fR, usually
+calculated by \fBfilaments\fR.  The name of the output IRAF image is
+specified as \fIoutimg\fR.  This image must not exist previously.  The
+dimensions of the image are specified by \fIgridrows\fR and \fIgridcols\fR.
+Specifying a 1xn image will make a one dimensional cut across a fully two
+dimensional calculation.
+
+The dimensions of the substrate (mirror) are specified by the
+diameter, \fIdmirror\fR; the focal ratio, \fIfnum\fR; and the aspheric
+coefficient, \fIasphere\fR.  A focal ratio of zero makes a flat
+substrate.  \fIasphere\fR = 0 makes a sphere and \fIasphere\fR = -1
+makes a parabola.  The substrate diameter fills the image regardless
+of the number of pixels.
+
+If a thickness is specified, the code scales to that mean thickness
+and calculates the implied filament loads.  If \fIthick\fR is INDEF,
+then the \fIload\fR is used to calculate the thickness.  The maximum
+and minimum thicknesses deposited on the mirror substrate are written
+to the image header.
+
+The deposition is calculated at the center of each pixel.  The first
+row or pixel is located 0.5 pixel inside the mirror edge.
+
+Pixel(1,1) is in lower left when image is displayed on imtool.
+
+Coordinate (0,0,0) is the vertex of the mirror.  Positive Z is along the
+optical axis above the mirror.
+.ih
+FUTURE IMPROVEMENTS
+
+Calculate rigorous normal to conic surfaces.
+
+Implement filament baffles physically, rather than simply and angle.
+
+Allow for extended filament geometry (not point sources).
+.ih
+EXAMPLES
+chamber fillocs junk.imh dmirror=8000.0 fnum=1.2 asphere=-1.0 thick=800.0 baff-
+.ih
+TIME REQUIREMENTS
+
+On a SPARC 1+, it takes about a minute to model 100 filaments on a 
+128x128 image.
+.ih
+BUGS
+
+Filaments should not be placed below the mirror edge, since the
+program does not check for aluminum which might be intercepted by
+other parts of the mirror.
+
+Flat substrate does not use the asphere coefficient.
+.ih
+SEE ALSO
+filaments, structure
+.endhelp

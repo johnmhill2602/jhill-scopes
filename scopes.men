@@ -1,0 +1,4 @@
+	aluminize --- package for modelling the aluminization process.
+	optics	--- package for telescope optical design.
+	specs  --- package for calculating telescope specifications.
+	furnace -- package for misc oven tasks

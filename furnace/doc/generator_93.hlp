@@ -1,0 +1,123 @@
+.help generator Aug93 furnace
+.ih
+NAME
+generator --- backup generator start procedure
+
+.ih
+DESCRIPTION
+This is the procedure for starting the Aggreko diesel generators to provide 
+backup power to the oven.  This version was originally written by
+P. Esterline and J. Hill in 1992; revised 13AUG93.
+
+The generators should be started anytime there is a power failure or a serious
+threat of a power failure.  At least one of them will be running continuously
+while the oven is rotating at high temperature.
+
+.ih
+STARTUP PROCEDURE
+
+.ls A) Remove Load
+Check the breakers inside the lab to be sure the load
+of the oven has been disconnected from the generator circuits with the
+breakers on GSB0 and GSB1.
+(See "8 Meter Furnace Power Manual")
+.le
+
+.ls B) Battery Power
+Turn the generator battery on with the red switch on the floor on the
+right side of the engine.  (If we have a battery charger, it should
+always be on during casting.)  The lights in the enclosure should come
+on if the switch at the door is on (but it has a delay timer).
+.le
+
+.ls C) Fluid Check
+Check the fuel (sight tube on right side of the engine), water (sight
+tube outside the enclosure) and oil levels (dipstick on left side of
+engine).  Make sure the fuel valve is on (yellow handle on floor on
+left side of engine).
+.le
+
+.ls D) Start
+Turn the startup switch (off/run/start) from off to run to start.  (It works
+just like your car.)  Check for alarm indicators on the panel.  
+.le
+
+.ls E) Warm-up
+Run the generator for 10 to 15 minutes before applying load.  Lower the oven
+power panel load limits as required.  In an emergency, the time it takes for
+you to switch the inside breakers will be long enough.
+.le
+
+.ls F) Frequency
+The frequency meters should read 56 - 57 Hz at start-up and should be increased
+to 60 Hz after running a few minutes.
+.le
+
+.ls G) Connect 
+Press the red breaker button to close the circuit breaker to put the
+generator on line (as long as everything is ready inside the lab).
+.le
+
+.ih
+NOTES
+
+.ls Circuit Breaker
+Some of these generators have a manual circuit breaker and some have an
+automatic breaker.  The breaker is in the silver control box behind the
+alarm panel.
+.le
+
+.ls Emergency Shut-off
+The emergency shut-off switch is the red push button on the outside of the
+enclosure near the generator door.
+.le
+
+.ls Fuel
+Each generator has a 600 gallon tank with two fill ports.  Fuel consumption
+is about 32 gallons/hour at full load.  Watch fuel levels; If it runs out
+of fuel, a service call is required.
+.le
+
+.ls Problems
+If service is needed, call Loftin Equipment Co. in Phoenix at
+(602) 272-9466  (24 hours).
+.le
+
+.ih
+SHUTDOWN PROCEDURE
+
+.ls V) Remove Load
+Remove the load with the breakers inside the lab.
+.le
+
+.ls W) Open Breaker
+Open the generator breaker by pressing the green button.
+.le
+
+.ls X) Frequency
+Lower the speed so the frequency is about 57 Hz.
+.le
+
+.ls Y) Turn Off
+Turn the off/run/start switch to off.
+.le
+
+.ls Z) Battery
+Turn off the red battery switch to reduce the risk of running the
+battery down.
+.le
+
+
+.ih
+BUGS
+The south generator (August 1993) has no water level sight tube on the
+radiator.
+The south generator does not have lights on the red and green circuit
+breaker buttons.
+.ih
+RELATED MIRROR HELP TASKS
+oven
+.ih
+RELATED FURNACE HELP TASKS
+furnace, menus
+.endhelp

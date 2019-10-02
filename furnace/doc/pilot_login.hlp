@@ -1,0 +1,356 @@
+.help pilot_login May00 furnace
+.ih
+NAME
+pilot_login --- procedure for pilot login and oven startup from console
+.ih
+DESCRIPTION
+
+This help file describes the PILOT STARTUP SEQUENCE FOR THE OVEN.
+
+These instructions assumes that crater (or dorado) is running and that
+the oven network is intact.  These instructions also assume that the
+on-board VME computers are running.  IRAF parameter defaults only work
+for \fIoven0v0\fR.
+
+See \fBuser_login\fR for information about non-pilot or remote logins.
+
+.ih
+WARNING NOTES
+
+Do not panic and reboot or logout too hastily.  Rebooting normally
+takes about 10 minutes depending on
+the condition of the disk.  This login procedure will take at least 3
+minutes if you are practiced.  You might get into even more trouble
+than you already had.
+
+Pilot (or Pilot2) should definitely not be running oven on the other
+workstation (crater or dorado) at the same time.  This is not
+impossible, but it is rather dangerous --- you could destroy the other
+database if you make a mistake.
+
+.ih
+STEP 1: login to the console as pilot (on crater) or pilot2 (on dorado).
+
+The console login starts with a blank screen that says:
+"crater login:" or "dorado login:" along with a Solaris graphic.
+
+After entering the username and password, this should give you an
+openwindows screen with:
+.nf
+		- a console window
+		- purple xgterm window with IRAF
+		- green xgterm window with IRAF
+		- red xgterm window with IRAF
+		- blue xgterm window with IRAF
+		- ximtool (image display)
+		- a mailtool (for mail)
+		- a clock
+	(roughly in that order)
+.fi
+It takes about 40 seconds for all the windows to start.
+
+.ih
+STEP 2: Load the external IRAF packages for the oven.
+
+This step is no longer needed as the \fBmirror\fR tasks used to run
+the oven are loaded automatically when the pilot logs in.  (see loginuser.cl)
+
+However, you may still load the \fBmirror\fR
+package in each xgterm window if you prefer.
+
+.ls
+
+.ls Example:
+.nf
+cl> mirror
+mi>
+.fi 
+.le
+
+The "mi>" prompt indicates that the \fBmirror\fR package is loaded.
+Type "?" for a list of the tasks in the active package (the last one loaded
+from the command line).
+
+.ls Example:
+.nf
+mi> ?
+      odisp  oven    ovend   oveng   ovenr   tcmark  
+      ograph ovenb   ovene   ovenp   ovenw   
+mi> 
+.fi
+.le
+
+If you have not loaded the \fBmirror\fR package, you can still get a
+list of the tasks in the package by saying "help mirror" or "help
+mirror option=dir".
+
+.le
+
+
+.ih
+STEP 3: Create shared memory segments if needed
+
+Shared memory segments must be created and initialized first. 
+Check these with "ipcs".  There should be 3 segments, one each for on-board
+computers oven0v0, oven0v1 and oven0v2.  And with Solaris 2.6 there are
+sometimes other segments.
+
+.ls Example (that's OK):
+.nf
+mi> !ipcs
+IPC status from <running system> as of Wed Sep  9 13:13:47 1998
+Message Queue facility not in system.
+T         ID      KEY        MODE        OWNER    GROUP
+Shared Memory:
+m          0   0x50000d40 --rw-r--r--     root     root
+m          1   00000000 --rw-rw-rw-  dwatson    other
+m          2   0x00000100 --rw-r--r--    pilot    other
+m          3   0x00000101 --rw-r--r--    pilot    other
+m          4   0x00000102 --rw-r--r--    pilot    other
+Semaphores:
+mi>
+.fi
+.le
+
+If shared memory segments do not exist, the \fBoven\fR task will create and
+initialize (fill with zeros) them.  The shared memory segments can
+only be created by the pilot.  Run the \fBoven\fR task for all three
+computers as shown below.  (use the blue window) Before you "exit"
+from each \fBoven\fR, use the "Database" menu to "Read parameters from
+disk".  If you know that you have "good" parameters in the
+v-computers, you could "Read parameters from oven" instead.  "Read
+parameters from disk" should always work, but could give you clock
+settings that are hours or even days old.
+
+.ls Example:
+.nf
+mi> oven ncomp=0	(Exit)
+mi> oven ncomp=1	(Exit)
+mi> oven ncomp=2	(Exit)
+mi>
+.fi
+.le
+
+.ls
+If an \fBoven\fR task crashes, use \fBflpr\fR to flush the process cache before
+restarting.  
+
+\fBunlearn oven\fR resets the default parameters for the task.
+\fIoven.readonly\fR must be "no" (which is not the default) to modify
+shared memory segments or the database file.  And \fIoven.remove\fR
+must be "no" to make a permanent shared memory segment.  If you leave
+\fIoven.readonly\fR as "yes", you will get the message "hoven error
+30".
+
+.ls Example:
+.nf
+mi> unlearn oven
+mi> oven.readonly=no
+mi> oven ncomp=0
+.fi
+.le
+.le
+
+.ih
+STEP 4:  Kill any stray background data, parameter and error daemons.
+
+
+Check for all pilot tasks by using: 
+.ls Example:
+.nf
+mi> !ps -efc | grep pilot 
+mi>
+.fi
+.le
+Oven tasks appear as "/iraf/mirror/bin.ssun/x_mirror.e".  The
+\fBcl\fRs in your xgterm windows appear as "/iraf/iraf/bin.ssun/cl.e",
+while the xgterm itself appears as "xgterm -name ovenBlue .......".
+Note that each background daemon has an associated \fBcl\fR which
+appears as "/iraf/iraf/bin.ssun/cl.e -d /home/pilot/uparm/bkg553b".
+
+If you only want to check for the oven tasks, you can say:
+.ls Example:
+.nf
+mi> !ps -efc | grep mirror |sort	(shows all mirror tasks)
+mi>
+.fi
+.le
+If you aren't sure, kill all pilot "mirror" tasks (and their parent
+PIDs) and start clean.  Killing a daemon may cause its associated
+\fBcl\fR task to go into a loop and use a lot of CPU time.
+
+If you only want to check for the background tasks, you can say:
+.ls Example:
+.nf
+mi> !ps -efc | grep bkg |sort	(shows all IRAF background tasks)
+mi>
+.fi
+.le
+
+
+To kill tasks, use the Unix command:
+.ls Example:
+.nf
+mi> !kill -9 xxxx
+.fi
+.le
+Where xxxx is the PID number displayed by ps.
+PID in this case means Process IDentifcation,
+not Proportional, Integral, Derivative.
+
+.ls
+	Hint: Always use care when killing tasks.  It is particularly
+unproductive to kill the window you are working in.  It is also
+recommended that you kill or spawn tasks when the clock is between 30
+and 45 seconds after the minute.  This avoids starting or stopping
+tasks while they are communicating.  Try to use the IRAF \fBkill\fR
+command whenever possible.
+
+Advanced users who are interested in a rapid kill may wish to try
+\fBscopes.furnace.killer\fR from J. Hill's \fBscopes\fR external IRAF
+package. It is fast, but dangerous.
+
+
+.le
+.ih
+STEP 5:  Start the new data and parameter daemons.
+
+Now you are ready to start the daemons in the blue window:
+.ls Example:
+.nf
+mi> ovenp &
+mi> ovenb &
+	(if you are coldstarting, turn on the on-oven VME computers here)
+mi> ovend & 
+mi> oven readonly=no
+.fi 
+.le 
+
+.ls
+The blue window will now continue the \fBoven\fR program talking to
+the shared memory segment for oven0v0.  If the oven0v0 computer is
+functioning, you should get fresh data each minute.
+
+For a brief description of the daemon's function type: \fBhelp ovenp\fR
+
+
+	Hint: Beware of parameter database synchronization problems
+after wierd scenarios.  One possible problem occurs if the VME
+computers booted before the oven daemons were running.  Download
+parameters to the oven	(and double check clock parameters). 
+.le
+
+.ls
+	Hint: Don't start background jobs if they are already running!  
+The old daemons should have been killed off in the previous step.
+If there is a duplicate daemon already running, you will get an
+error message like: "poven error -3".
+.le
+
+.ih
+STEP 6:	Start the error daemons.
+
+You are never really secure unless you have your error daemons running.
+
+Start these four daemons in the red window:
+.ls Example:
+.nf
+mi> ovene ncomp=0 offset=10 & 
+mi> ovene ncomp=1 offset=11 &
+mi> ovene ncomp=2 offset=12 &
+mi> oveng & 
+mi> oven offset=14
+.fi
+.le
+Set the \fBoven\fR program in the red window to read the error log.
+
+.ls
+
+To verify which background tasks are running in a particular xgterm
+window, use the IRAF \fBjobs\fR command.
+.ls Example from the blue window:
+.nf
+mi> jobs
+    [1] 1473:50  Running   ovenb & 
+    [2] 1473:38  Running   ovenp & 
+    [3] 1407:02  Running   ovend & 
+mi>
+.fi
+.le
+.le
+
+.ih
+STEP 7: Start the oven cron task.
+
+Start the cron task in the purple window:
+.ls Example:
+.nf
+mi> ovenc &
+.fi
+.le
+ograph and odisp should now display data at appropriate intervals.
+
+.ls
+ 
+To stop the cron task or another daemon, use the IRAF \fBkill\fR
+command in the relevant window: \fBkill\fR x
+(where x is the job number [1-4])
+.le
+
+.ih
+STEP 8: Start the \fBovenr\fR daemons.
+
+Start the two \fBovenr\fR daemons in the green window.  These are only needed
+during fast rotation --- they log the measured rotation speed in a
+file every 6 seconds.
+
+.ls Example:
+.nf
+mi> ovenr connection="oven0v0,5107" > rspeed.oven0v0 &
+mi> ovenr connection="oven0v2,5107" > rspeed.oven0v2 &
+mi>
+.fi
+.le
+
+If the rspeed file exists, you will have to change the > to a >> in order
+to append to a file.  Then to view the rspeed file on the green window
+screen, start a Unix tail task "!tail -f rspeed.oven0v0".  You may stop
+this tail task with a ^C without any interuption to the \fBovenr\fR daemons.
+
+.ih
+Other useful commands:
+
+To check the communication links, use "!netstat -f inet".
+
+To remove a shared memory segment, use "!ipcrm -m xxx".
+
+To check the available swap space, use "!swap -s".
+
+To check the available disk space and to see which disks are
+mounted, use "!df".  To see the disk use in the current directory, use
+"!du".
+
+To make a hardcopy of a window, use "!xwd |xpr -device ps |lp".
+If the window is white on black use "!xwd |xpr -device ps -rv |lp" to reverse
+it.  (These commands are usually aliased to "hc" and "hr".)
+
+To logoff from the console, select "Exit" from the Rootmenu and then confirm
+your selection when prompted.
+(The oven pilot should never need to logoff, except for software changes
+or workstation failure.)
+
+.ih
+BUGS
+.ih
+RELATED MIRROR HELP TASKS
+oven, ovenb, ovenp, ovend, ovene, oveng, ovenw, ovenc, ovenr
+.ih
+RELATED FURNACE HELP TASKS
+user_login, pilot_short, simul_login, dead_sun
+.ih
+RELATED IRAF HELP TASKS
+jobs, kill, spy, lpar, unlearn, flpr, prc, cursors, help, ximtool
+.ih
+RELATED UNIX MAN PAGES
+ps, df, du, grep, ipcs, ipcrm, openwin, kill, swap, w, netstat, X11
+.endhelp

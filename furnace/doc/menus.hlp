@@ -1,0 +1,89 @@
+.help menus Jul93 furnace
+.ih
+NAME
+menus --- description of configuration and status menus
+.ih
+DESCRIPTION
+	The various menus are grouped in a tree structure.  The arrow
+keys are used to move around inside and between menus.  The down arrow
+is used to move to the next item in the menu, and the up arrow to the
+previous item. The left arrow key is known as the GOTO
+key.  This is used slightly differently in different contexts.  It may
+be used to go to a sub-menu, or it may be used to "execute" a function
+specified by the menu item (as in the Database Menu),  or it may be
+used to go to a related menu to the current menu as specified by the
+particular menu item.  Example: When in the thermocouple menu, if the
+cursor at the menu item indicating the TIC status, one may jump
+"sideways" (from one branch of the menu tree structure to another at
+the equivalent depth) by merely pressing the GOTO key.  The right
+arrow key is the GOBACK function.  It returns you to the previous menu
+context.
+
+	Data is entered using the E and RETURN keys.  If the data
+associated with the menu item has only two values (ON/OFF,
+Enabled/Disabled, Run/Stop), The value will toggle each time the E key
+is pressed.  Otherwise, a value must be entered by first pressing E,
+then typing in the value, and finally pressing return.
+
+	In the lower left corner of the menu screen, several "flags"
+may appear.  The letter "E" will appear if there are any normal
+(non-priority) error messages pending that have not yet been
+acknowledged.  The character "!" will appear if there are any pending
+unacknowledged priority errors.  The letter "A" indicates that the
+screen is in autoupdate mode.
+
+	In the bottommost line on the screen, menu error messages
+(as oppposed to oven error messages) will appear, explaining more fully the
+error you made in using the menu system.  If you make a self-explanatory
+error, the menu system will just beep at you.
+
+.ih
+MENU CLASSES
+
+The \fBoven\fR program has four top level menu options.
+\fIExit\fR quits the program.  \fIConfiguration and Status\fR shows the
+oven data and parameters through various submenus.  \fIError Log\fR pages through
+the "errors.log" file.  \fIDatabase\fR peforms various oven database operations.
+
+.ls Oven Menu
+.nf
+Oven Main Menu
+Exit
+Configuration and Status
+Error Log
+Database
+.fi
+.le
+
+.ih
+MENU KEYS
+.nf
+?               Help for cursor mode
+j, CR           Cursor down one line
+d               Scroll down half page
+f, SP           Scroll down full page
+g               Scroll down to end of page
+k               Cursor up   one line
+u               Scroll up   half page
+b               Scroll up   full page
+.               Scroll up   to top of page
+n               Go     to related  menu
+!               Go directly to error menu
+p               Return to previous menu
+l               Repaint page
+q               Refresh page
+a               Auto-refresh page
+e               Enter new data
+i               Enter new data from image cursor
+m               Enter new data and go to related menu
+o               Enter new data from image cursor and go to
+P               Enable parameter edit and cache
+K               Enable clock parameter edit and cache
+W               Flush parameter cache
+.fi
+
+.ih
+BUGS
+
+.ih
+SEE ALSO

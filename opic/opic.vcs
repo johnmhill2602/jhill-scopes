@@ -1,0 +1,567 @@
+
+VCScreen_2.13a (c) 1988 by Creative Programming, ALL RIGHTS RESERVED.
+VCS_DESIGN
+
+
+
+DEFMENUSTYLE
+[STDHORIZ]
+33
+80
+27
+113
+19
+23
+0
+0
+ENDDEF
+
+DEFMENUSTYLE
+[STDVERT]
+34
+-1
+27
+113
+19
+23
+0
+0
+ENDDEF
+
+DEFMENU
+0
+0
+[[ OPIC  version 1.0 ]]
+[NO HELP]
+[STDHORIZ]
+[main_menu]
+4
+ENDDEF
+
+DEFMENUITEM
+[File]
+[]
+[ Output File management]
+[]
+8
+ENDDEF
+
+DEFMENU
+2
+1
+[File]
+[NO HELP]
+[STDVERT]
+[file_menu]
+6
+ENDDEF
+
+DEFMENUITEM
+[Save Dis 1]
+[save_dis_1]
+[Save Display 1 image to disk]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Save Dis 2]
+[save_dis_2]
+[Save Display 2 image]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Save Dis 3]
+[save_dis_3]
+[Save Display 3 image]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Save Dis 4]
+[save_dis_4]
+[Save Display 4 image]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Retrieve]
+[get_pic]
+[Retrieve a previously saved picture]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Quit]
+[exit_opic]
+[Exit OPIC Program]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Select]
+[]
+[ Select Camera/ Strobes]
+[]
+8
+ENDDEF
+
+DEFMENU
+2
+7
+[Select]
+[NO HELP]
+[STDVERT]
+[select_menu]
+2
+ENDDEF
+
+DEFMENUITEM
+[Camera/ Strobe]
+[sel_cam_strobe]
+[Select Camera and Strobe Combination]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Shutter Speed]
+[shutter_speed]
+[Select Shutter Speed]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Image]
+[]
+[Image Management]
+[]
+8
+ENDDEF
+
+DEFMENU
+2
+15
+[Image]
+[]
+[STDVERT]
+[image_menu]
+2
+ENDDEF
+
+DEFMENUITEM
+[Acquire]
+[acq_image]
+[Acquire and image from selected camera]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Move]
+[move_image]
+[Move an image from one display to another]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Calibrate]
+[]
+[Strobe testing and calibration]
+[]
+8
+ENDDEF
+
+DEFMENU
+2
+15
+[Calibrate]
+[NO HELP]
+[STDVERT]
+[calibrate_menu]
+5
+ENDDEF
+
+DEFMENUITEM
+[Set Delay]
+[set_delay]
+[Set Strobe delay time]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Flash 1]
+[flash_strobe_one]
+[Discharge Strobe number 1]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Flash 2]
+[flash_strobe_two]
+[Discharge Strobe number 2]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Flash 3]
+[flash_strobe_three]
+[Discharge Strobe number 3]
+[]
+4
+ENDDEF
+
+DEFMENUITEM
+[Flash 4]
+[flash_strobe_four]
+[Discharge Strobe number 4]
+[]
+4
+ENDDEF
+
+DEFWINDOW
+[status_wdo]
+[]
+[]
+2
+22
+0
+24
+79
+78
+1
+8198
+1
+0
+0
+32
+ENDDEF
+
+DEFWINDOW
+[strobe_stat_wdo]
+[]
+[[ Strobe Status ]]
+3
+11
+0
+21
+32
+31
+9
+8206
+0
+6
+23
+32
+ENDDEF
+
+	DEFOUTFLD
+	1
+	4
+	1
+	12
+	[]
+	[Strobe 1:]
+	-1
+	9
+	ENDDEF
+
+	DEFOUTFLD
+	2
+	4
+	2
+	12
+	[]
+	[Strobe 2:]
+	-1
+	9
+	ENDDEF
+
+	DEFOUTFLD
+	3
+	4
+	3
+	12
+	[]
+	[Strobe 3:]
+	-1
+	9
+	ENDDEF
+
+	DEFOUTFLD
+	1
+	15
+	1
+	24
+	[]
+	[Discharged]
+	79
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	2
+	15
+	2
+	21
+	[]
+	[Charged]
+	47
+	7
+	ENDDEF
+
+	DEFOUTFLD
+	3
+	15
+	3
+	22
+	[]
+	[Charging]
+	159
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	4
+	4
+	4
+	12
+	[]
+	[Strobe 4:]
+	-1
+	9
+	ENDDEF
+
+	DEFOUTFLD
+	4
+	15
+	4
+	24
+	[]
+	[Discharged]
+	79
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	6
+	4
+	6
+	9
+	[]
+	[Delay:]
+	-1
+	6
+	ENDDEF
+
+	DEFOUTFLD
+	6
+	15
+	6
+	22
+	[]
+	[136.3 ms]
+	127
+	8
+	ENDDEF
+
+DEFWINDOW
+[camera_stat_wdo]
+[]
+[[ Display/ Camera Status ]]
+4
+11
+33
+21
+79
+45
+9
+8206
+9
+1
+4
+32
+ENDDEF
+
+	DEFOUTFLD
+	1
+	22
+	1
+	31
+	[]
+	[Display 1:]
+	-1
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	1
+	34
+	1
+	41
+	[]
+	[Camera 1]
+	63
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	2
+	22
+	2
+	31
+	[]
+	[Display 2:]
+	79
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	2
+	34
+	2
+	41
+	[]
+	[Camera 2]
+	207
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	3
+	22
+	3
+	31
+	[]
+	[Display 3:]
+	-1
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	3
+	34
+	3
+	41
+	[]
+	[Camera 3]
+	47
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	4
+	22
+	4
+	31
+	[]
+	[Display 4:]
+	-1
+	10
+	ENDDEF
+
+	DEFOUTFLD
+	6
+	11
+	6
+	24
+	[]
+	[Shutter Speed:]
+	-1
+	14
+	ENDDEF
+
+	DEFOUTFLD
+	6
+	27
+	6
+	34
+	[]
+	[10,000th]
+	31
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	1
+	2
+	1
+	16
+	[]
+	[Live (Selected)]
+	191
+	15
+	ENDDEF
+
+	DEFOUTFLD
+	2
+	2
+	2
+	18
+	[]
+	[08/29 10:13 Frame]
+	207
+	17
+	ENDDEF
+
+	DEFOUTFLD
+	3
+	2
+	3
+	18
+	[]
+	[08/29 09:45 Frame]
+	47
+	17
+	ENDDEF
+
+	DEFOUTFLD
+	4
+	34
+	4
+	41
+	[]
+	[Camera 4]
+	223
+	8
+	ENDDEF
+
+	DEFOUTFLD
+	4
+	2
+	4
+	18
+	[]
+	[Acquiring field 1]
+	223
+	17
+	ENDDEF
+
+DEFWINDOW
+[files_wdo]
+[]
+[[ Files ]]
+5
+3
+33
+10
+79
+45
+8
+8206
+1
+0
+0
+32
+ENDDEF

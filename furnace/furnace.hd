@@ -1,0 +1,59 @@
+# Help directory for the FURNACE package.
+
+$doc = "scopes$furnace/doc/"
+
+# furnace
+
+autos		hlp = doc$autos.hlp,		src = furnace$t_autos.x
+level		hlp = doc$level.hlp,		src = furnace$t_level.x
+gkimerge	hlp = doc$gkimerge.hlp,		src = furnace$t_gkimerge.x
+killer		hlp = doc$killer.hlp,		src = furnace$killer.cl
+fdisplay	hlp = furnace$fdisplay.cl,	src = furnace$fdisplay.cl
+fimstat		hlp = furnace$fimstat.cl,	src = furnace$fimstat.cl
+fhselect	hlp = furnace$fhselect.cl,	src = furnace$fhselect.cl
+fimhist		hlp = furnace$fimhist.cl,	src = furnace$fimhist.cl
+fimhead		hlp = furnace$fimhead.cl,	src = furnace$fimhead.cl
+fimplot		hlp = furnace$fimplot.cl,	src = furnace$fimplot.cl
+fexport		hlp = furnace$fexport.cl,	src = furnace$fexport.cl
+calczpwr	hlp = doc$calczpwr.hlp,		src = furnace$calczpwr.cl
+takepic		hlp = furnace$takepic.cl,	src = furnace$takepic.cl
+flkill		hlp = furnace$flkill.cl,	src = furnace$flkill.cl
+videoc		hlp = furnace$videoc.cl,	src = furnace$videoc.cl
+shortc		hlp = furnace$shortc.cl,	src = furnace$shortc.cl
+psi2gif		hlp = furnace$psi2gif.cl,	src = furnace$psi2gif.cl
+xgifc		hlp = furnace$xgifc.cl,		src = furnace$xgifc.cl
+xremote		hlp = furnace$xremote.cl,	src = furnace$xremote.cl
+clocks		hlp = doc$clocks.hlp
+dead_sun	hlp = doc$dead_sun.hlp
+duties		hlp = doc$duties.hlp
+hardware	hlp = doc$hardware.hlp
+heater		hlp = doc$heater.hlp
+wait_states	hlp = doc$wait_states.hlp
+menus		hlp = doc$menus.hlp
+generator	hlp = doc$generator.hlp
+config_mode	hlp = doc$config_mode.hlp
+logbook		hlp = doc$logbook.hlp
+ovenlog		hlp = doc$logbook.hlp
+new_tcmark	hlp = doc$new_tcmark.hlp
+one_computer	hlp = doc$one_computer.hlp
+pilot_login	hlp = doc$pilot_login.hlp
+pilot_short	hlp = doc$pilot_short.hlp
+user_login	hlp = doc$user_login.hlp
+trouble		hlp = doc$trouble.hlp
+spinning	hlp = doc$spinning.hlp
+schedules	hlp = doc$schedules.hlp
+simul_login	hlp = doc$simul_login.hlp
+minutemap	hlp = doc$minutemap.hlp
+remote		hlp = doc$remote.hlp
+lvdt		hlp = doc$lvdt.hlp
+time_temp	hlp = doc$time_temp.hlp
+#video		hlp = doc$video.hlp
+#opic		hlp = doc$video.hlp
+pfireon		hlp = doc$pfireon.doc
+pfireoff	hlp = doc$pfireoff.doc
+spinning	hlp = doc$spinning.hlp
+revisions	hlp = Revisions
+
+
+
+

@@ -1,0 +1,8 @@
+# Root task entry for the scopes package help tree.  Defines `scopes' as
+# both a task and a package in the scopes help database.
+
+scopes		men  = scopes$scopes.men,
+		hlp  = scopes$scopes.men,
+		sys  = scopes$scopes.hlp,
+		pkg  = scopes$scopes.hd,
+		src  = scopes$scopes.cl

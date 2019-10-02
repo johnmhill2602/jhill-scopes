@@ -1,0 +1,129 @@
+# Make the SCOPES packages.
+#	updated for IRAF/Solaris 06SEP94
+
+$ifeq (hostid, unix)  !(date)  $endif
+$call update
+$ifeq (hostid, unix)  !(date)  $endif
+$exit
+
+update:
+	$call aluminize
+	$call optics
+	$call specs
+	$call furnace
+
+	$ifeq (HOSTID, vms) $purge [...] $endif
+	$purge scopesbin$
+	;
+
+aluminize:
+	$echo "--------------------- ALUMINIZE ---------------------"
+	$call update@aluminize
+	;
+optics:
+	$echo "--------------------- OPTICS ---------------------"
+	$call update@optics
+	;
+specs:
+	$echo "------------------- SPECS ---------------------"
+	$call update@specs
+	;
+furnace:
+	$echo "------------------- FURNACE ---------------------"
+	$call update@furnace
+	;
+
+# STRIP -- Strip the SCOPES directories of all sources and other files not
+# required to run the system, or for user programming.
+
+strip:
+	!rmfiles -f lib/strip.scopes
+	;
+
+# SUMMARY -- [UNIX] mkpkg summary: output a summary of the spooled mkpkg
+# output, omitting most of the mundane chatter.  Used to scan large spool
+# files for errors.
+
+summary:
+	$ifeq (HOSTID, unix)
+	    ! grep -v ':$$' spool | grep -v '^xc' | grep -v '^ar'\
+	    | grep -v '^check file'
+	$else
+	    $echo "mkpkg summary only available on a UNIX system"
+	$endif
+	;
+
+# SUN/IRAF multiple architecture support.
+# ----------------------------------------
+
+showfloat:				# show current float option
+	$verbose off
+	!$(hlib)/mkfloat.csh
+	;
+f68881:					# install f68881 binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh f68881 -d $(DIRS)
+	;
+ffpa:					# install ffpa binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh ffpa -d $(DIRS)
+	;
+fswitch:				# install fswitch binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh fswitch -d $(DIRS)
+	;
+fsoft:					# install fsoft binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh fsoft -d $(DIRS)
+	;
+sparc:					# install sparc binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh sparc -d $(DIRS)
+	;
+i386:					# install i386 binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh i386 -d $(DIRS)
+	;
+vax:					# install vax binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh vax -d $(DIRS)
+	;
+generic:				# install generic binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh generic -d $(DIRS)
+	;
+vw:					# install vw binaries
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh vw -d $(DIRS)
+	@src/oven/voven/
+	;
+ssun:
+	$verbose off
+	$set DIRS = "lib src"
+	!$(hlib)/mkfloat.csh ssun -d $(DIRS)
+	;
+linux:					# install Slackware binaries
+        $ifnfile (bin.linux)
+            !mkdir bin.linux
+        $endif
+	$verbose off
+	$set DIRS = "src lib"
+	!$(hlib)/mkfloat.csh linux -d $(DIRS)
+	;
+redhat:					# install RedHat binaries
+        $ifnfile (bin.redhat)
+            !mkdir bin.redhat
+        $endif
+	$verbose off
+	$set DIRS = "src lib"
+	!$(hlib)/mkfloat.csh redhat -d $(DIRS)
+	;

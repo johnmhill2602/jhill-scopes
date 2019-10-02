@@ -1,0 +1,76 @@
+Draft Procedure for Oven Rotation Under Computer Control 12SEP87
+
+
+Clear Inside Pedestal Area.
+
+Close and Lock Lower Door.
+
+Clear Hearth Level Platform and Install All Railing Sections.
+        Has the Lid Support Pillar Been Removed?
+
+Close and Lock Upper Gate.
+
+Insert Gate Key in Control Room Interlock Switch and CLOSE Interlock.
+
+Make Sure All Personnel Are Clear of Oven Except Operator.
+
+Insert Keys in Control Panel Interlock Switches.  Leave Them OPEN.
+
+Make Sure Rotation Control Panel Power Switch Is OFF.
+
+Turn Main Oven (Casting) Power ON with Wall Breakers.
+
+Both Red Main Power Indicators on Control Panel should be LIT.
+        These are labelled POWER #1 and POWER #2.
+        If not, Check that motor controllers are plugged in to a live source.
+
+Set Manual Speed Dial to Zero (0), counterclockwise.
+
+Set Thumbwheel Switches to Ultimate Casting Speed for Backup.
+
+Set CONTROL Switch to MANual (very important).
+
+Set DIGITAL CONTROL Switch to COMPuter.
+
+Select Motor with DRIVE Switch, #1 or #2 or BOTH.
+
+Turn Rotation Control Panel Power Switch ON.
+        Warning Strobes Should Begin Flashing.
+        Control Power Indicator Should Light.
+
+The C Computer should be running.
+
+A schedule, preferably starting from zero, should be running in the rotation
+        zone.  The desired speed will be displayed on the LED readouts by the 
+        R Computer.  You may also request this value by RBROTV.
+
+Allow 60 seconds for Digital Controllers to Reset and for R-computer to
+        load in the computer set speed.
+
+Set CONTROL Switch to #1 or #2 to select a digital controller.
+
+Ring Warning Bell by pressing one of the JOG buttons.
+
+You are now ready to move the oven.
+
+Turn Keys in Both Interlock Switches to CLOSED.
+        Interlock Indicator Should Light.
+
+Use JOG FORWARD button to rotate the oven a full revolution at slow speed.
+
+Verify Computer Selected Speed on Both LED Displays.
+        Display is X.YYY RPM.
+
+Press FORWARD (or REVERSE) Button to Arm Rotation.
+        Horn will sound.  Hold Button Down.
+        Green Motor Power Indicator Lights will come on.
+        Oven will begin to Rotate.
+        If selected speed is zero (0.000),  No Further Warning Will Be Given.
+        Computer has Control of Rotation Speed.
+
+To STOP Oven:
+        Press Red STOP Button.
+                or
+        OPEN Any Interlock Switch.
+                or 
+        Turn off Main Oven Power Breakers.

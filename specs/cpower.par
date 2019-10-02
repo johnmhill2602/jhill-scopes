@@ -1,0 +1,4 @@
+infile,s,a,,,,Input file name or STDIN
+power,r,h,-2.0,,,Combination exponent
+result,r,h,0.0,,,Result of previous
+verbosity,i,h,4,1,,Output verbosity

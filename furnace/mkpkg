@@ -1,0 +1,26 @@
+# Make the FURNACE package.
+# version 10OCT92, 10AUG93, 12FEB94
+
+$call	relink
+$exit
+
+update:
+	$call	relink
+	$call	install
+	;
+
+relink:
+	$update	libpkg.a
+	$omake	x_furnace.x
+	$link	x_furnace.o libpkg.a -lxtools -liminterp -o xx_furnace.e
+	;
+
+install:
+	$move	xx_furnace.e scopesbin$x_furnace.e
+	;
+
+libpkg.a:
+	t_autos.x				<ctype.h><time.h>
+	t_gkimerge.x <error.h><fset.h><gio.h><gki.h><gset.h><math.h><mach.h>
+	t_level.x	<imhdr.h>	<error.h>	<time.h>
+	;

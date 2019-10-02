@@ -1,0 +1,10 @@
+# Help directory for the OPTICS package.
+
+$doc = "scopes$optics/doc/"
+
+# optics
+
+cass		hlp = doc$cass.hlp,		src = optics$t_cass.x
+autocass	hlp = doc$autocass.hlp,		src = optics$autocass.cl
+depfoc		hlp = doc$depfoc.hlp,		src = optics$depfoc.cl
+revisions	hlp = Revisions

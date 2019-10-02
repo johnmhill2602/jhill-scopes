@@ -1,0 +1,5 @@
+# Root help directory for the SCOPES packages.  This dummy package is necessary
+# in order to have `scopes' appear as a module in some package, so that the
+# user can type "help scopes" (with the `scopes' given as a task).
+
+_scopes		pkg = scopes$lib/rootscopes.hd

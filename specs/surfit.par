@@ -1,0 +1,15 @@
+# SURFIT.PAR - Parameter file for SURFIT, xyz list to surface fit
+infile,f,a,,,,input file
+numxyz,i,h,1000,1,,number of xyz input points
+xorder,i,h,2,1,,order of fit in x-direction
+yorder,i,h,2,1,,order of fit in y-direction
+xterms,b,h,n,,,include cross terms (y/n)
+xmin,r,h,INDEF,,,minimum x-coordinate
+xmax,r,h,INDEF,,,maximum x-coordinate
+ymin,r,h,INDEF,,,minimum y-coordinate
+ymax,r,h,INDEF,,,maximum y-coordinate
+rmaski,r,h,0.0,0.0,,inside radius to mask off
+rmasko,r,h,70.0,0.0,,outside radius to mask off
+sigmam,r,h,-5.0,,0.0,lower sigma clipping
+sigmap,r,h,5.0,0.0,,upper sigma clipping
+verbosity,i,h,4,1,,output verbosity

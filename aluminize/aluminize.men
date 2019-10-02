@@ -1,0 +1,4 @@
+	chamber --- model chamber depostion profiles
+	filaments --- generate a pattern of filaments (in rings)
+	structim --- measure structure function of an image
+		-?- means this task is not yet implemented

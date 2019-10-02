@@ -1,0 +1,8 @@
+SCOPES -- A suite of IRAF based packages developed at 
+	Steward Observatory, University of Arizona, Tucson, Arizona.
+	Contact J. M. Hill for more information.  jhill@as.arizona.edu
+
+    optics	third order telescope optical design
+    aluminize   aluminum deposition modelling
+    specs	calculation of telescope specifications
+    furnace     misc utilities for oven operation

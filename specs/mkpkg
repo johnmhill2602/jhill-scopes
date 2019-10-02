@@ -1,0 +1,38 @@
+# Make the SPECS package.
+# version 20NOV92/31AUG94/26SEP94
+
+$call	relink
+$exit
+
+update:
+	$call	relink
+	$call	install
+	;
+
+relink:
+	$update	libpkg.a
+	$omake	x_specs.x
+	$link	x_specs.o libpkg.a -lxtools  -lgsurfit -o xx_specs.e
+	;
+
+install:
+	$move	xx_specs.e scopesbin$x_specs.e
+	;
+
+libpkg.a:
+	t_newspecs.x					<time.h>
+	t_junk.x					<time.h>
+	t_structure.x	<error.h>			<time.h>
+	struct.f
+	t_xyzim.x	<error.h>	<imhdr.h>	<time.h>
+	t_xyzdot.x	<error.h>	<imhdr.h>	<time.h>
+	t_xyzmom.x	<error.h>	<imhdr.h>	<time.h>
+	t_rrrmom.x	<error.h>			<time.h>
+	ckdatan2.x					<math.h>
+	t_cpower.x	<error.h>			<time.h>
+	t_surfit.x	<error.h>	<math/gsurfit.h> <time.h>
+	t_synthim.x			<imhdr.h>	<time.h>  <mach.h>
+	@smooth
+	;
+
+

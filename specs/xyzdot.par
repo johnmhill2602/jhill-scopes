@@ -1,0 +1,13 @@
+# XYZDOT.PAR - Parameter file for XYZDOT, xyz list to image interpolator.
+input,f,a,,,,input file
+image,f,a,,,,output image file
+numxyz,i,h,1000,1,,number of xyz input points
+outpix,i,h,128,4,2048,output image dimension (pixels)
+xmin,r,h,-70.0,,,minimum x-coordinate
+xmax,r,h,70.0,,,maximum x-coordinate
+ymin,r,h,-70.0,,,minimum y-coordinate
+ymax,r,h,70.0,,,maximum y-coordinate
+rmasko,r,h,70.0,0.0,,outside radius to mask off
+maskf,r,h,0.0,,,fill value for mask
+title,s,h,"",,,image title
+debug,b,h,no,,,

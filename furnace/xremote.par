@@ -1,0 +1,7 @@
+lastfile,s,h,"takepic.log",,,last picture logfile
+numlast,i,h,5,0,,number of pictures to get
+delay,i,h,600,1,,delay in seconds between actions
+verb,i,h,3,0,99,verbosity
+version,s,h,"09JUN97",,,version date of this routine
+list1,*struct,h,"",,,
+mode,s,h,ql,,,

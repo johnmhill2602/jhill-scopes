@@ -1,0 +1,4 @@
+ologfile,s,h,"mkgifc.log",,,mkgifcc logfile
+delay,i,h,1000,0,,delay between sequences (seconds)
+version,s,h,"27SEP98",,,version date of this routine
+mode,s,h,ql,,,

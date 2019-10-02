@@ -1,0 +1,58 @@
+.help filaments Feb91 scopes.aluminize
+.ih
+NAME
+filaments -- compute the physical locations of aluminizing filaments
+.ih
+USAGE
+filaments rings filaments
+.ih
+PARAMETERS
+.ls rfile = "string"
+File containing description of rings of filaments. (input)
+.le
+.ls fifile = "string"
+File containing filament locations. (output)
+.le
+.ls verbosity = "int"
+Controls how much the program prints.
+.le
+.ih
+DESCRIPTION
+
+The task \fBchamber\fR requires a list of filament locations as input
+to its modelling calculations.  This task takes a list of circular rings
+of filaments provided by the user and produces the explicit list of filament
+locations.  These two lists are stored in \fIrfile\fR and \fIfifile\fR
+respectively.
+
+The ring file is read line by line in the following format:
+.nf
+	while (fscan (tfd) != EOF) {
+	    call gargl (KR(pp,ll+1))		# ring number
+	    call gargl (RNUM(pp,ll+1))		# number of filaments
+	    call gargr (RRAD(pp,ll+1))		# radius
+	    call gargr (RHITE(pp,ll+1))		# height above vertex
+	    call gargr (ROFF(pp,ll+1))		# az. offset (in filaments)
+.fi
+
+The filament file is written in the following format:
+.nf
+	    call fprintf (tfd, "%4u  %12.4f %12.4f %12.4f\n")
+		call pargl (KF(pp,ll))		# filament number
+		call pargr (XA(pp,ll))		# X
+		call pargr (YA(pp,ll))		# Y
+		call pargr (ZA(pp,ll))		# Z
+.fi
+
+Parameters for physical baffles will be added in the future.
+.ih
+EXAMPLES
+filaments ring_file  fil_file
+.ih
+TIME REQUIREMENTS
+.ih
+BUGS
+.ih
+SEE ALSO
+chamber, structure
+.endhelp

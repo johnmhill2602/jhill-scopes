@@ -1,0 +1,12 @@
+rfile,s,h,"/home/pilot/rspeed.oven0v0",,,input rspeed file
+izero,s,h,"",,,number to subract in awk (blank for default)
+istart,i,h,INDEF,,,seven-digit-limit to start plot (negative to offset back)
+istop,i,h,INDEF,,,seven-digit-limit to end plot
+iincr,i,h,2500,,,increment per plot page
+rmin,i,h,0.0,0,40000,millirpm
+rmax,i,h,8000,0.0,40000,millirpm
+tfile,s,h,"/tmp/spinplot.tmp",,,temporary file
+append,b,h,no,,,append to an existing plot?
+device,s,h,"stdgraph",,,output device
+version,s,h,"25AUG09",,,version date of this routine
+mode,s,h,ql,,,

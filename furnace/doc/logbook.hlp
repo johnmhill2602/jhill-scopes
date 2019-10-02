@@ -1,0 +1,122 @@
+.help logbook Aug93 furnace
+.ih
+NAME
+logbook --- electronic oven logbook, alias ovenlog
+
+.ih
+ELECTRONIC LOGBOOK
+	We are going to try making an electronic logbook during the
+next firing.  Our June 1991 experiment in this area was only partially
+successful, mostly because of computer limitations at that time. The
+concept is that instead of writing in the paper logbook, you send an
+email message to a user named "ovenlog".  This produces a text file
+which can be read back or printed out.  We will want to continue with
+the paper log as well since files can be erased.
+
+The motivation for the computerized log book is primarily so that
+John, Skip, Mark and the other pilots can read the log remotely.
+It should also allow us to search more effectively back through old
+logbooks.  It is often desirable to find the last time TC 4352 was
+acting up.
+
+You should enter the same items in the log as before:
+.nf
+	a) when you arrived and departed
+	b) what you checked
+	c) any unusual activities you observed
+	d) any errors
+	e) summary of oven conditions
+	f) dial indicator readings
+	g) interesting poetry
+.fi
+The idea is that the next shift or someone next year can concisely
+understand everything that happened on your watch.
+If your shift was boring, you might only send 1 message.  If lots of things
+are happening, there might be dozens of messages per shift.
+
+.ih 
+LOGBOOK ENTRY
+ To make a logbook entry, click twice on the mailtool icon, then click
+the "compose, new" button to start a composition window.  Then you
+type in your mail message with "To: ovenlog" and "Cc: pilot".  You
+don't have to be logged in as pilot to send email to ovenlog, so
+anybody can do it.  The logbook entry is just the same as a regular
+email message.
+
+Try to make the "Subject:" entry descriptive and consistent. For example,
+all dial indicator readings might have a subject of "dial gauge".
+This would allow us to collect all the readings from a run into a file
+using grep or match.
+
+Times and dates are automatically added to mail, so you don't have to worry
+about that unless the time is different from when you sent the mail.
+
+Feel free to send practice messages to the log or to me before the
+next firing begins.
+
+.ih
+READING THE LOGBOOK
+ You can read the electronic logbook just like you read regular email
+with mailtool except that you use the "ovenlog" mailtool icon on the
+pilot's screen instead of the normal "mailtool" mailtool. Click once
+with the right mouse button to select a message from the mailbox.
+Click twice to read a message.  (see below for other ways to read the log.)
+Don't worry, you can't destroy the old messages in the ovenlog.
+
+Click "Done" if you are finished reading mail with mailtool.  If you want to
+iconize mailtool in its current state, click the close button in the
+upper left corner of the window border.
+
+.ih
+HARDCOPY
+ While you are reading mail, click the "file, print" button to make a
+hardcopy of the message on the laser printer.  You can paste this
+hardcopy in the paper logbook to save writing.
+
+.ih
+COPYING INFORMATION
+ Because the mailtool uses the openwindows text edit format, you can
+copy text from one window to another.  For example, if you see an
+error message in the red window, you can highlight the message in that
+window by pointing and clicking.  Then you hit the "copy" key.  Move
+the mouse to the mailtool window and hit the "paste" key.  Once you
+have learned how to do this, you will never write down an error
+message by hand again.
+
+You can also move mail messages into or out of files by dragging them 
+to/from the filemanger window.
+
+.ih
+OTHER OPTIONS
+If you are not running openwindows you can use the "Berkeley" mailer
+by saying "mail ovenlog" and type your message terminated with a
+<cntrl-Z>.  Or you can use PCNFS to send mail from a PC.  
+
+To read the logbook file, say:
+.nf
+	cl> mail -f ovenlog
+.fi
+Or you can page the file /u3/ovenlog/Mail/ovenlog.
+Unix tail can be used to continuously show you the last page of a file.
+.nf
+	cl> !tail -f /u3/ovenlog/Mail/ovenlog
+(^C to exit from tail)
+.fi
+
+.ih
+BUGS
+The "ovenlog" mailtool will complain if you do something that could
+modify a message.
+.ih
+RELATED MIRROR HELP TASKS
+oven
+.ih
+RELATED FURNACE HELP TASKS
+furnace, menus
+.ih
+RELATED UNIX MAN PAGES
+mail
+.ih
+RELATED OPENWIN HELP VIEWER TOPICS
+About Mailtool, About Text Editor
+.endhelp

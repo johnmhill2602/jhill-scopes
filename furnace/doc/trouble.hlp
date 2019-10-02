@@ -1,0 +1,75 @@
+.help trouble Nov 96 furnace
+.ih
+NAME
+trouble --- description of common problems with the oven screen
+.ih
+DESCRIPTION
+
+	This help file describes some of the most frequently encountered
+problems with the oven window system.  The recommended solutions are
+also given.  If any of these problems reoccur frequently, you may be doing
+something wrong.  The old name of this file was "problems".
+
+.ls window gone
+	If a window dies completely, move the mouse to the blue
+background area and press the right mouse button to get the "rootmenu"
+called MENUS.  Slide over to select the USER menu and then the OVEN
+menu, then select the window type that you wish to recreate and
+release the button.  Note that this does not "reset" a window; it
+creates a new one.  Be sure that the old window is not still around;
+otherwise you could wind up with two copies of the same window, which
+is bad news.  Remember the old window could be hidden or closed (iconized)
+somewhere.  The mailtool, perfmeter and clock are not
+oven specific, so you get them from the SYSTEM - PROGRAMS menu.
+
+	The most frequent window to die is \fBximtool\fR, which
+cannot deal with talking to two tasks at once.  You therefore should
+be careful not to run \fBodisp\fR while a \fBovenc\fR is running.
+
+	To intentionally quit a window, move the mouse to the top
+border of the window and hold down the right mouse button.  Select
+QUIT.
+.le
+
+.ls syntax errors
+	If you start getting lots of syntax errors from an IRAF
+window, try giving the cl command \fBflpr\fR.  \fBflpr\fR may be the
+most useful IRAF task you ever learn.  If \fBflpr\fR doesn't work,
+recheck the task parameters.  Otherwise, \fBlog\fR out of IRAF, then
+restart the window as above.
+.le
+
+.ls frozen xgterm windows
+	If a xgterm window "freezes up", it could be because
+you hit 256 characters without hitting a carriage return.  This
+usually occurs when you accidentally lean on the keyboard.  The window
+will just beep at you when you try to enter more characters. <cntrl-C>
+fixes this problem.
+.le
+
+.ls green boxes on your ximtool
+	After accidentally creating a little green marker box with the
+mouse in ximtool, you can blow it (the box) away by simply moving the
+mouse pointer to within the marker box and pressing the DEL key on the
+keyboard.  
+.le
+
+.ls mouse button initialization for imcur
+	Unlike in the "good ol' days", mouse buttons are not easily
+initialized for ximtool v0.5 under Solaris and X11 IRAF.
+This means that if you attempt to access imcur from the \fBoven\fR program
+to find an oven location, you cannot use the left mouse button to return.
+Hit "t", "l", "w", "b" or "a" to return from the ximtool imcur mode.
+.le
+
+.ls help for ximtool and xgterm
+	There is not really much user documention for the IRAF xgterm and
+ximtool windows.  What there is can be found on the web at:
+http://astro.as.arizona.edu/www/r/iraf/local/doc/ in the files
+xgterm.info and ximtool.info.
+
+.ih
+BUGS
+These are the bugs, but not all of them.  Good luck in finding your own.
+.ih 
+SEE ALSO

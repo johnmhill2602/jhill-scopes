@@ -1,0 +1,52 @@
+title,s,a,"cassegrain telescope data",,,"Data File Title:"
+rnum,r,a,2.0,1.0,6.0,"Number of Mirrors in Optical Train:"
+styp,r,a,2.0,0.0,3.0,"Telescope Configuration 0=prime 1=newt 2=cass 3=greg
+
+--- System Parameters ---"
+fs,r,a,15,0.0,,"System Focal Ratio:"
+verd,r,a,0.0,-999.9,999.9,"Vertex Distance (m)(+ is below primary):
+    (or Axis to Focus Distance for RNUM=1,3)"
+field,r,h,0,0,,"Field Diameter (arcmin):"
+spotsize,r,h,0.1,0.0,,"RMS Angular Image Radius Tolerance (arcsec):
+
+--- Primary Mirror Parameters ---"
+d1,r,a,8.408,0.0,100.0,"Primary Mirror Diameter (m):"
+f1,r,a,1.14177,0.0,,"Primary Focal Ratio:"
+pbaffle,r,h,0,0,,"Primary Obstruction (INDEF to calculate):"
+alpha1,r,h,INDEF,,,"Primary Asphere (INDEF to calculate):
+
+--- Secondary Parameters ---"
+alpha2,r,h,INDEF,,,"Secondary Asphere (INDEF to calculate):"
+l2,r,h,INDEF,,,"Secondary Focal Length (m)(- is convex):
+
+--- Infrared Secondary Parameters ---"
+irm2,b,h,n,,,"Use secondary as aperture stop?"
+lmax,r,h,20.0,0.0,100.0,"Maximum infrared wavelength (microns):"
+xdif,r,h,3.7,0.0,10.0,"Tolerable diffraction radius:"
+cent,r,h,0.0,0.0,0.1,"Infrared centration allowance (m):
+
+--- Flat Mirror Parameters ---"
+vt,r,h,2.5,,,"Height of Tertiary above Vertex (m):
+
+--- Beam Combiner Parameters ---"
+pspace,r,h,14.408,,,"Primary Separation (center-center m 0 = single dish):"
+vh,r,h,2.5,,,"Height of Beam Combiner above Vertex (m):"
+yocomb,r,h,0,,,"Lateral Offset of Combined Focus (m):"
+fscomb,r,h,INDEF,,,"Final Combined Focal Ratio"
+vdcomb,r,h,INDEF,,,"Final Combined Vertex Distance (m)"
+vf,r,h,INDEF,,,"Height of Fold Flat 4 above Vertex (m):"
+xf,r,h,INDEF,,,"Horizontal Offset of Fold Flat 4 (m):"
+afbeam,r,h,INDEF,0.0,,"Afocal telescope beam diameter (m):
+
+--- Coude Train Parameters ---"
+zelax,r,h,1,,,"Height of El. Axis above Vertex (m):"
+yelax,r,h,0,,,"Offset of El. Axis from Baseline (m):
+
+--- Program Control for Lens File ---"
+rayfile,s,h,"",,,"Name of raytrace file (blank=none)"
+rayprog,s,h,"oslopro",oslo|oslopro|codev|zemax|all,,"Raytrace program (oslo|oslopro|codev|zemax)"
+rayrl,b,h,n,,,"Rays enter from the right? (default=left)"
+raypup,b,h,n,,,"Show the pupil surfaces?"
+rayobs,b,h,n,,,"Include telescope obstructions?"
+rayud,b,h,n,,,"Tertiary tilts up?"
+index,r,h,1.00029,0,,"Refractive Index of Air"

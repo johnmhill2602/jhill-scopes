@@ -1,0 +1,1 @@
+cc -o somltopgm -I/u1a/garyb/XV/pbmplus10dec91 somltopgm.c /u1a/garyb/XV/pbmplus10dec91/pgm/libpgm.a /u1a/garyb/XV/pbmplus10dec91/pbm/libpbm.a

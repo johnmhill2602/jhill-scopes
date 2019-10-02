@@ -1,0 +1,116 @@
+.help trouble Jan94 furnace
+.ih
+NAME
+trouble --- description of common problems with the oven screen
+.ih
+DESCRIPTION
+
+	This help file describes some of the most frequently encountered
+problems with the oven window system.  The recommended solutions are
+also given.  If any of these problems reoccur frequently, you may be doing
+something wrong.  The old name of this file was "problems".
+
+.ls window dies
+	If you accidently type <cntrl-X> in an xterm window, you will
+kill the window and whatever task is running.  This is different under
+openwin than it was under sunview where <cntrl-X> would suspend the
+task, but not kill the window.  Note that emacs traps <cntrl-X> as a
+command and that \fBoven\fR does a "go back" if you type <cntrl-X>.
+If you are running oven remotely, then <cntrl-X> will still force the
+\fBcl\fR into the background and say "Stopped".  To recover, say "fg"
+at the Unix % prompt.
+.le
+
+.ls window gone
+	If a window dies completely, move the mouse to the gray
+background area and press the right mouse button to get the "rootmenu"
+called WORKSPACE.  Slide over to select the OVEN menu, then select the
+window type that you wish to recreate and release the button.  Note
+that this does not "reset" a window; it creates a new one.  Be sure
+that the old window is not still around; otherwise you could wind up
+with two copies of the same window, which is bad news.  Remember the
+old window could be hidden or closed somewhere.  The console cmdtool,
+mailtool, perfmeter and clock are not oven specific, so you get them
+from the PROGRAMS menu.
+
+	The most frequent window to die is \fBsaoimage\fR, which
+cannot deal with talking to two tasks at once.  You therefore should
+be careful not to run \fBodisp\fR while a \fBovenc\fR is running.
+
+	To intentionally quit a window, move the mouse to the top
+border of the window and hold down the right mouse button.  Select
+QUIT.
+.le
+
+.ls syntax errors
+	If you start getting lots of syntax errors from an IRAF
+window, try giving the cl command \fBflpr\fR.  \fBflpr\fR may be the
+most useful IRAF task you ever learn.  If \fBflpr\fR doesn't work,
+recheck the task parameters.  Otherwise, \fBlog\fR out of IRAF, then
+restart the window as above.
+.le
+
+.ls frozen xterm windows
+	If a xterm (or gterm) window "freezes up", it could be because
+you hit 256 characters without hitting a carriage return.  This
+usually occurs when you accidentally lean on the keyboard.  The window
+will just beep at you when you try to enter more characters. <cntrl-C>
+fixes this problem.
+.le
+
+.ls incomplete plot
+	Often the graph in the graphics window associated with an xterm
+will appear incomplete.  To flush the graphics buffer and complete the
+graph select REFRESH from the top of the graphics window.
+.le
+
+.ls frozen graphics windows
+	If the graphics window of an xterm stops accepting keystroke
+input and just beeps at you, that usually means that it needs a series of
+REFRESHes and RESETs.  This assumes, of course, that you were typing valid
+keystrokes.
+.le
+
+.ls screwy cursor keys
+	If you are using \fBograph\fR or something else in the
+graphics section of a gterm window, and you quit the window while
+\fB=gcur\fR is active, then the cursor keys will not work in the text
+part of the gterm window unless you put on caps lock.  This can also
+occur if you control-C out of \fB=gcur\fR.  The solution is to go to
+the submenu in the xterm window by typing
+<cntrl-middle-mouse-button> and select "Show TEK Window".  Once the
+graph is rexposed, you can exit the \fB=gcur\fR normally with a "q"
+and everything will be back to normal. 
+.le
+
+.ls no scrollbar
+	If you want to see the scroll bar on your xterm window, press
+<cntrl-middle-mouse-button> in the body of the window and select "Enable
+Scroll Bar".
+.le
+
+.ls mouse button initialization for imcur
+	When pilot first logs in the mouse buttons are not initialized.
+This means that if you attempt to access imcur from the \fBoven\fR program
+to find an oven location, you cannot use the left mouse button to return.
+Use "t" or "l" or "w" or "b" to return from the imtool.
+	To initialize the mouse button, enter "=imcur" from the blue window.
+Then type "t" in the imtool to return.  Then enter "=imcur" again in the 
+blue window.  Then type <cntrl-left-mouse-button> twice.  Now clicking
+the left mouse button will return the relevant r-theta-z coordinates.
+	The <cntrl-left-mouse-button> trick does not seem to work with
+ximtool version 0.4.  So, you must use "tlwba" keys to return from imtool.
+.le
+
+.ls green boxes on your imtool
+	After accidentally creating a little green marker box with the mouse
+in ximtool, you can blow it away by simply moving the mouse pointer to
+within the marker box and pressing the DEL key on the keyboard.
+.le
+
+.ih
+BUGS
+These are the bugs, but not all of them.
+.ih 
+SEE ALSO
+"man xterm", "man saoimage"

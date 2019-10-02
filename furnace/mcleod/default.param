@@ -1,0 +1,34 @@
+# parameter file with good default values
+#
+# use this as a guideline for any parameters you don't really understand
+# or don't care about
+#
+
+PATTERN		IBBPBBPBBPBBPBB
+OUTPUT		magellanmovie.mpg
+
+BASE_FILE_FORMAT	PNM
+GOP_SIZE	30
+SLICES_PER_FRAME	1
+
+PIXEL		HALF
+RANGE		10
+PSEARCH_ALG	LOGARITHMIC
+BSEARCH_ALG	CROSS2
+IQSCALE		8
+PQSCALE		10
+BQSCALE		25
+
+REFERENCE_FRAME	ORIGINAL
+
+#
+# you really need to understand the following
+#
+PNM_SIZE	512x512
+INPUT_CONVERT	somltopgm *  | pnmflip -tb
+
+INPUT_DIR	.
+
+INPUT
+a2816533.fits
+END_INPUT

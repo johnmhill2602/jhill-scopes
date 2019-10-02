@@ -1,0 +1,12 @@
+# LEVEL.PAR
+image,f,a,,,,input image file (with section)
+ymin,i,h,INDEF,1,,First line to search
+ymax,i,h,INDEF,1,,Last line to search
+xmin,i,h,INDEF,1,,First column to search
+xmax,i,h,INDEF,1,,Last column to search
+width,i,h,6,1,3000,Halfwidth of edge template
+scale,r,h,1.0,,,Pixel scale (units/pixel)
+pzero,r,h,0.0,,,Pixel zero point
+cwidth,r,h,3.0,0.0,,Centering width
+cradius,r,h,1.0,0.0,,Centering radius
+verbosity,i,h,4,1,,Output verbosity

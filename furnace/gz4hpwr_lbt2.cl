@@ -1,0 +1,25 @@
+#AUTOS, ograph script generator --- SPP Version of 26-MAR-97
+#       Executed on: Wed 16:24:02 17-May-2000
+
+# pfe 024 113 121 202        Z3  Z3  Z3  Z3
+ograph noven=0 \\
+info1="hpwr" r1=183 th1=300 z1=000 \\
+info2="hpwr" r2=183 th2=180 z2=000 \\
+info3="hpwr" r3=183 th3=270 z3=000 \\
+info4="hpwr" r4=183 th4=060 z4=000 
+
+# pfe 217 329 411 516        Z3  Z3  Z3  Z3
+ograph noven=0 \\
+info1="hpwr" r1=183 th1=240 z1=000 \\
+info2="hpwr" r2=183 th2=000 z2=000 \\
+info3="hpwr" r3=183 th3=150 z3=000 \\
+info4="hpwr" r4=183 th4=210 z4=000 
+
+# pfe 526 602 705 808        Z3  Z3  Z3  Z3
+ograph noven=0 \\
+info1="hpwr" r1=183 th1=330 z1=000 \\
+info2="hpwr" r2=183 th2=030 z2=000 \\
+info3="hpwr" r3=183 th3=090 z3=000 \\
+info4="hpwr" r4=183 th4=120 z4=000 
+
+#AUTOS:  Read  2786 points from data file for   12 entries; (0).

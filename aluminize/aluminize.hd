@@ -1,0 +1,10 @@
+# Help directory for the ALUMINIZE package.
+
+$doc = "scopes$aluminize/doc/"
+
+# aluminize
+
+chamber		hlp = doc$chamber.hlp,		src = aluminize$t_chamber.x
+filaments	hlp = doc$filaments.hlp,	src = aluminize$t_filaments.x
+structure	hlp = doc$structure.hlp,	src = aluminize$t_structure.x
+revisions	hlp = Revisions

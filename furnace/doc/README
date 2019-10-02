@@ -1,0 +1,44 @@
+From hill Thu Jul 29 19:43:45 1993
+Date: Thu, 29 Jul 93 19:43:33 MST
+From: hill (John Hill)
+To: dwatson, rlutz, kjohnson, eanderson, pmuir, pesterline, rkraff
+Subject: Extra help pages for oven
+Cc: hill, pilot, skip, alan, mark, scott, tom, bolbert
+Content-Length: 1384
+X-Lines: 34
+Status: RO
+
+Dear Oven Pilots,
+	I have just completed updating the series of oven help files
+that are not a permanent part of the mirror package.  I have also
+installed a better way to access them.  Now when you log on as pilot on
+crater or dorado, you can say "help topic" or better "phelp topic" to
+read the help pages about topic.  To print the help file say "help
+topic |lpr".
+
+The available topics are:
+clocks config menus minutemap logbook lvdt pilot_login pilot_short remote 
+schedules simul_login trouble user_login wait_states furnace
+
+These are in addition to the usual topics from the mirror package:
+odisp ograph oven ovenb ovend ovene oveng ovenp ovenr ovenw tcmark xytran
+
+The topics that have changed significantly you will want to read:
+pilot_login, pilot_short, simul_login, trouble, lvdt
+
+Please send me email if you find errors or if you can suggest clearer 
+explanations.
+						Ciao,
+							John
+
+
+
+Read on to learn the mechanics of how I did it.
+
+I have assembled all the help files in an external IRAF package of mine
+called scopes.furnace.  It lives in /u/hill/scopes/furnace/.
+This allows me to edit the files without reinstalling skip's mirror package.
+Thus the old help files in /u/pilot/PROCEDURES are now obsolete.
+In the pilot's loginuser.cl file, I have added the appropriate lines
+to that the scopes helpdb.mip (help database) is attached to the pilot 
+helpdb list.

@@ -1,0 +1,8 @@
+Revisions to the SPECS package.
+
+pre 1994   	JMH	a long and undocumented history....
+23 August 1994	JMH	added synthim task
+31 August 1994  JMH     added xyzmom task
+26 September 1994 JMH   added rrrmom task
+21 April 2004 JMH       modified printing in xyzim and xyzdot
+	while hunting for bug relating image dimension and coordinate range

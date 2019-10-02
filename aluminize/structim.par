@@ -1,0 +1,9 @@
+# STRUCTIM.PAR
+image,f,a,,,,input image file
+rmasko,r,h,70.0,0.0,,outside radius to mask off
+rmaski,r,h,0.0,0.0,,inside radius to mask off
+scale,r,h,1.0,0.0,,image scale
+kran,i,h,1000,2,9000,Number of points to process
+nbin,i,h,20,1,200,Number of structure function bins
+idec,i,h,4,1,100,Number of bins per dex
+verbosity,i,h,4,1,,Output verbosity

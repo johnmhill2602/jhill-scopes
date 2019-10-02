@@ -1,0 +1,12 @@
+# Global environment definitions for the SCOPES packages.
+
+set	pkglibs		= "scopes$lib/"
+set	scopesbin	= "scopes$bin(arch)/"
+set	scopeslib	= "scopes$lib/"
+
+set	aluminize	= scopes$aluminize/
+set	optics		= scopes$optics/
+set	specs		= scopes$specs/
+set	furnace		= scopes$furnace/
+
+keep

@@ -1,0 +1,1 @@
+< $1.fits somltopgm | pgmtoppm rgbi:1/1/1 | pnmflip -tb | ppmtogif >$1.gif

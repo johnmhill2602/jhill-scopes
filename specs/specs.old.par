@@ -1,0 +1,11 @@
+r05,r,a,0.45,0,,r0 for the atmosphere (m)
+t05,r,a,1.20,0,,r0 for the mirror (m)
+diameter,r,h,8.0,0,,diameter of mirror (m)
+scale,r,h,1.0,1.0,,wavefront scaling factor
+scatter,r,h,0.05,0,1,scattering loss
+maxrms,r,h,0,0,,maximum wavefront rms (nm)
+minsep,i,h,10,1,1000,minimum separation (cm)
+maxsep,i,h,1000,10,5000,maximum separation (cm)
+npoints,i,h,50,1,500,number of bins
+tiltyn,b,h,y,,,remove tilt?
+spaceyn,b,h,n,,,space mirror?

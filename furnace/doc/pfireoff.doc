@@ -1,0 +1,381 @@
+
+
+PREFIRE CHECKLIST  (POWER PANELS OFF)
+
+
+I.  Power Systems
+
+
+    A. Grid Power checks				
+
+____   1. Check with Physical Resources for any power outages.
+
+____   2. Check to see if  TEP plans on outages or any work in the area.
+
+
+    B. Generator Power Checks
+
+____   1. Fuel provisions - who to call in the middle of the night for
+          a fill up.
+
+____   2. New and improved generator start-up procedures and switchover 
+          drill for oven pilots.	                            
+
+
+    C. Oven High Power Service Check
+
+____   1. Visually check slip ring brushes and springs.			
+
+____   2. Visually check slip ring bearing lubrication.                         
+
+    D. Oven Low Power Service Check
+
+____   1. Visually check lower slip rings in the pit.	
+
+
+    E. Housekeeping Power Check
+
+____   1. Lower Slip Ring; Check for switch over to step-down transformer.
+          These are located on two of the beams underneath.  In case of
+          lower power slip ring failure for alternative source. 
+
+____   2. On board circuit breaker check - make sure every thing does 
+          come on.  (This includes a lot of equipments.  A separate list
+          could be made)
+
+____   3. Power panel control units run normally off high power slip rings
+          but can be switch to outlets in the power panels and these need 
+          to be checked.
+
+____   4. Check pit AC outlets to make sure they are live.
+
+____   5.  Lights - Check for burnt out bulbs or additional lighting required.
+
+
+    F. Onboard Emergency Power Checks
+
+____   1. Computer UPS							
+
+       2. TIP Battery Power
+
+____      a. Visual check for corrosions or damage (leaking etc.)	
+
+____      b. Quick check on switching/charging on each panel .
+
+____         1) Battery charger						
+
+____         2) Battery							       
+
+____         3) AC Power Supply						       
+
+                                                                             
+    G. Control Room Power Checks
+
+____   1. Make sure control room computers run off UPS
+
+____   2.  Drill for pilot to understand how to do the switch.
+          (Only in case of UPS failure.)
+
+
+    H. Power Phasing Monitor Checks
+
+____   1. Check the house keeping power switch over (on the beams).
+          There are fuses that can be pulled to check for correct
+          software phasing read outs.
+
+    I. Rotation Power Checks
+
+
+
+II. Control and Communication Systems Checks
+
+    A. On-Board VME Computers
+
+____   1. Locate Spare Boards. Make readily available to oven-pilots
+          and key personnel. 
+
+____   2. All boards need to checked with simulator boards to see if they
+          are interchangeable with the simulator boards.  All strapping and
+          software ROM's  need to be  check in each CPU configuration
+          (0,1,2).  These boards consist of;
+
+		CPU Boards
+		PIO Boards
+		SIO Boards
+		ADC Boards
+
+	Note:  It would not be a bad idea to located all documentation
+        for strapping on these boards so that they are readily available.
+
+
+____   3. Emergency Procedure needs to be drilled in case of one of the
+          CP's fails .  
+
+     B. Ethernet link Checks - 
+
+     C. Fiber Optics Interface Checks (VME SIO to Heaters and
+        Rotation Controls)
+
+____     1. The RS232 conversions boards and fiber optics are in each
+                CPU cabinet.  Each cabinet needs a visual check.
+
+____     2. Check Power  Supply Visual and Voltage	
+
+____     3. Check Fiber Connections-Visual		
+
+____     4. The same should be done on the rotation cabinet.
+
+____ D. Data Slip rings.  Visual inspection (Located in the bottom of pit)
+
+        The hardware on the torque arm is tight and all  connectors are
+        secure.
+
+        The data that runs through this slip ring are:
+
+             Video
+             Rotation Control
+             Ethernet (two links that both need  to be tested)
+             Alarms
+
+____     1. Check top of slip rings to see if all the cables, etc. are in
+            visual good condition. The huge trunk of cables (Rats Nest)
+
+     E.  Control Room Computer Checks
+
+____     1. Check with operators to see if any thing needs to be changed,
+            ie; printers, etc.
+
+____     2. Sun computers are all operational and what emergency
+            procedures need to be addressed for a failure on Crater
+            and what needs to be done hardware wise in the control 
+            computer room.  Should only have to switch over to Dorado.
+	    Look for procedures.
+
+____     3. Drill oven pilots with simulator run.
+
+     F.  Software Checks
+
+____     1. Things that are changed in the software need to have hardware
+            faults put into the system to check.
+
+____     2. Pilot training and feed back on changes.	
+
+     G.  Internal Data Communications Checks
+
+____     1. Test Network : Oven Alone	
+
+
+     H.  Campus Data Communication Checks
+
+____     1. Too assure remote links for key personnel are functional.
+
+____     2. Computer Systems Group (CSG) review passwords and
+            security measures.
+
+
+____ I.  Telephones (on oven), Walkie Talkie Checks, Beeper Checks.	
+
+
+III. Heater  Control System Checks
+
+     A. Power Panels
+
+____    1. Check to see if housekeeping power (AC plugs) in cabinets are live.
+
+____    2. Check fuses and availability of spares.
+
+____    3. Check filters on fans. Replace them.
+
+____    4. Power supply lights come on and boards, power supplies 
+           are all seated and screwed down.  Check power supply
+           voltages at test points. 
+
+     B. Heater Control Logic Checks	
+
+____    1. Fiber optics cables secure and check spare fiber  cables.	
+
+
+     C. Heater Wire and Distribution Checks
+
+____    1. All twistlocks that look damaged should be changed.	
+
+____    2. Check strain reliefs on heater boxes on lid and cone, rework 
+           if necessary.
+
+____    3. Dress and tie-wrap down heater cables in tray and on lid & cone.
+
+____    4. Look for damaged cords and replace.	
+
+____    5. Check raceways where twistlocks plug in to see if any covers 
+           are loose and falling off.
+
+     D. Hearth Plate Heater Systems
+
+____    1. Check under hearth for any loose, damaged, hanging, or 
+           suspicious plate heater wires or anything else suspicious
+           under hearth.
+
+     E. Remote Current Sense System Checks 
+
+____    1. Check strain reliefs and labels.  These are getting very hard 
+           to read and will become impossible to find if not relabeled.
+
+
+IV. Temperature Instrumentation Checks
+
+    Listed below are items that could use a visual check;
+
+    A. DCU
+
+____   1. Computer-DCU Bus interface cards.	
+
+____   2. Channel Select Cards (Control TIC's)	
+
+____   3. Counter Card. (Read TIC output)	
+
+____   4. DC Power Supply	
+
+       5. DCU/TIC Interconnection Cabling
+
+____      a. Channel Select current loop cables	
+
+____      b. TIC outputcounter input fiber optics cables
+
+
+       6. Temperature Instrumentation Panels (TIP Panels)
+
+____      a. Power Checks	
+
+____ 	  b. Check all fans to each panel.  Listen for them since they
+              are hard to get to and in the back of each panel.
+
+____      c. TIP battery check (press buttons)			
+
+
+       7.  Thermocouples
+
+	   a. New list for additional or moved TCs
+
+____	      1)  Controls Tc's			
+
+____          2)  Mold Tc's	
+
+____          3)  Plate Tc's			
+
+____          4)  Glass Tc's		
+
+____          5)  Slipring Tc's			
+
+____          6)  Panels Tc's			
+
+____          7)  Motor Tc's		
+
+____          8)  Gear/Bearing Tc's				
+
+____          9)  Structure Tc's					
+
+____         10)  Ambient Air Tc's			
+
+____         11)  Video Equipment Tc's		
+
+____         12)  Other						
+
+
+
+V. Rotation Control System Checks	
+
+
+   A. Power Checks
+
+____  1. Make sure that power on the beams for additional plugs are live.
+
+____  2. Cooling				
+
+      3. Check Manual Controls              
+
+____     a. Local							
+
+____     b. Remote							
+
+      4. Safety interlocks for rotation in control room
+
+____      a. Locks and Keys - Check to see if they work.		
+
+
+VI. Video System Checks
+
+
+    A. Power
+
+____   1. Power to flash						
+
+____   2. Video Panel power (IP panel)			
+
+____   3. Thermal Electric Cooling Box power			
+
+
+     B. Camera
+
+____    1. Mount cameras, cables routing				
+
+____    2. Alignment checks				
+
+____    3. Make sure blowers work	
+
+____    4. Check temperature of Thermal Electric Cooling Box		
+
+____    5. Check that purge is present				
+
+____    6. Check thermal electric cooling supplies are regulating	
+
+
+     C. Flash (*NOTE; Careful keep safe. Persons could be ZAP!*)
+
+____    1. Make sure they flash					
+
+____    2. Make sure blowers work					
+
+____    3. Check on spares						
+
+   
+     D. Computer/Video in Control Room
+
+____     1. Check Monitors-Round up all monitors from last run.	
+
+____     2. Check Software						
+
+____     3. Flash Check						
+
+____     4. Take pictures						
+
+____     5. Check disk space on PC and Sun computers			
+
+      * Auxiliary Video Equipments
+
+____    Facilities Cam							
+
+____    Stair Cam				
+
+____    Cone Cam							
+
+
+   Miscellaneous Control System Requirements Checks
+
+   A. Cooling
+
+____  1. Onboard computer cabinet refrigeration (these freeze up in
+         humid weather if cabinet is open for long).
+
+____  2. Pedestal ventilation fans and blowers
+
+____  3. Lid fans
+
+   B. Audio Communications
+
+____  1. Control room to pedestal interior
+
+____  2. Control room to rotation controls area				
+
+____  3. Control room to shop and switchboard area			
+
+   C. Simulator Checks	

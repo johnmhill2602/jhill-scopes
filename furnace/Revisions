@@ -1,0 +1,28 @@
+.help revisions May00 scopes.furnace
+.nf
+Revision history file for SCOPES.FURNACE
+
+10OCT92 -- Created package with autos from mxproto,  JMH
+28JUL93 -- Copied killer.cl from mxpackage.mxobserve.
+	-- Added a number of the help pages from the oven.
+11AUG93 -- created gkimerge to combine metacode files for imdkern, JMH
+	-- included a number of ograph scripts.
+21AUG93 -- started converting ograph scripts to have their own .par files.
+25JAN94 -- Added fdisplay to rfits and display FITS images.  JMH
+	-- Added fimstat, fimhead, fimplot
+31JAN94 -- Added fimhist
+12FEB94 -- Added "level" to measure glass level on video JMH
+07NOV96 -- new "killer", updated furnace help pages. JMH
+06JAN97 -- Updated "autos" and added "auto_all.cl". JMH
+23JAN97 -- Added "fproc" for processing video images. JMH
+08MAY97 -- Added "takepic" for new oven video.  JMH
+06JUN97 -- Added "videoc", "xgifc" and "xremote" for new oven video.  JMH
+
+09SEP98 -- Using "shortc" as the video script, later videoc.  JMH
+24SEP98 -- Added "psi2gif", "gtest" to make ographs in GIF format.  JMH
+
+19MAY00 -- Added autoscale parameter to "fexport" to scale video levels.  JMH
+	-- Added "ghigh_lbt2" etc. to plot high temperature of each casting.
+.fi
+
+

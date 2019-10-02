@@ -1,0 +1,13 @@
+datafile,s,a,,,,Input datafile name
+outfile,s,h,"",,,Output file name (not used)
+clobout,b,h,no,,,Clobber existing output file?
+gtype,s,h,"tc",tc|he0,,Data type to graph
+rmin,i,h,0,-99,999,Minimum r value
+rmax,i,h,350,-99,999,Maximum r value
+thmin,i,h,0,0,360,Minimum theta value
+thmax,i,h,360,0,360,Maximum theta value
+zmin,i,h,0,-99,999,Minimum z value
+zmax,i,h,120,-99,999,Maximum z value
+iinfo,i,h,1,1,4,First info param to use
+finfo,i,h,4,1,4,Last  info param to use
+verbosity,i,h,5,0,,Output verbosity

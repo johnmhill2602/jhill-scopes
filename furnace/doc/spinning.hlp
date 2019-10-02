@@ -1,0 +1,112 @@
+.help spinning Dec96 furnace
+.ih
+NAME
+spinning --- starting and stopping oven rotation (DRAFT)
+
+.ih
+DESCRIPTION
+
+This document describes the procedure for preparing the oven for
+rotation.  This is an operator's guide --- not an engineering manual.
+Remember that many mechanical and electrical checks are made as part
+of the preflight sequence before heating begins.
+
+.ih
+Step 1: PREPARE OVEN AREA FOR ROTATION
+
+Clear Inside Pedestal Area.
+
+Close and Lock Lower Door.
+
+Insert Key in Control Panel Interlock Switch.  Leave it OPEN.
+
+Clear Hearth Level Platform and Install All Railing Sections.
+
+Make Sure All Personnel Are Clear of Oven Except Operator.
+
+Insert Keys in Control Room Interlock Switches and CLOSE Interlocks.
+
+Start with Rotation Control Panel Power Switches OFF.
+
+Verify Main Oven (Casting) Power is ON with Wall Breakers, and that
+each Drive is plugged into the appropriate beam-level three-phase twistlock.
+
+.ih
+STEP 2: MANUAL ROTATION FOR CLEARANCE CHECK
+
+Set CONTROL Switch to MANual (very important).
+
+Set Manual Speed Dials to Zero (000), counterclockwise.
+
+Turn Each Rotation Control Panel Power Switch ON.  Warning Strobes
+Should Begin Flashing.  Control Power Red Indicators Should Light.
+These are labelled POWER #0 and POWER #2.  If not, Check that motor
+controllers are plugged in to a live source.
+
+You are now ready to move the oven to verify that there are no obstructions.
+
+Turn Key in the Interlock Switch to CLOSED.
+
+Press REVERSE (or FORWARD) Buttons to Arm Rotation on both drives.
+Horn will sound.  Hold Button Down.
+Green Motor Power Indicator Lights will come on.
+
+Use manual control knob to set a fractional RPM speed.
+Oven will begin to Rotate.
+Use knobs to rotate the oven a full revolution at slow speed on each drive.
+
+Then bring the oven to a complete stop.
+
+Press the red stop button to disarm the drives.
+
+.ih
+STEP 3: TRANSFER TO DIGITAL CONTROL
+
+Set DIGITAL CONTROL Switch to COMPuter.
+
+Set Thumbwheel Switches to the Ultimate Casting Speed for Backup.
+
+The R-computer should be running.
+
+A schedule, preferably starting from zero, should be running in the
+rotation zone on the VME computers.  The desired speed will be
+displayed on the LED readouts by both of the R-Computers.
+
+Allow 60 seconds for Digital Controllers to Reset and for R-computers to
+load in the computer set speed.
+
+Verify Computer Selected Speed on Both LED Displays.
+        Display is X.YYY RPM.
+
+Set CONTROL Switch to #1 to select the digital controllers.
+(Do NOT use the CONTROL Switch in position #2 except for engineering tests.)
+
+Press REVERSE (or FORWARD) Buttons to Arm Rotation on both drives.
+Horn will sound.  Hold Button Down.
+Green Motor Power Indicator Lights will come on.
+
+If selected speed is zero (0.000),  No Further Warning Will Be Given.
+Computer has Control of Rotation Speed.
+
+.ih
+TO STOP THE OVEN: 
+
+Press the Red STOP Button.
+
+or
+
+OPEN Any Interlock Switch; (both switches in the Control Room)
+
+or 
+
+Turn off Main Oven Power Breakers.
+
+.ih
+BUGS
+.ih
+RELATED MIRROR HELP TASKS
+oven
+.ih
+RELATED FURNACE HELP TASKS
+schedules, wait_states, zones, menus
+.endhelp

@@ -1,0 +1,17 @@
+# smooth library
+
+$checkout   libpkg.a   ../
+$update     libpkg.a
+$checkin    libpkg.a   ../
+$exit
+
+libpkg.a:
+	iqhscv.f
+	iqhsd.f
+	iqhse.f
+	iqhsf.f
+	iqhsg.f
+	iqhsh.f
+	uertst.f
+	ugetio.f
+	;

@@ -1,0 +1,30 @@
+# Make the ALUMINIZE package.
+# version 29APR92
+
+$call	relink
+$exit
+
+update:
+	$call	relink
+	$call	install
+	;
+
+relink:
+	$update	libpkg.a
+	$omake	x_aluminize.x
+	$link	x_aluminize.o libpkg.a -lxtools  -o xx_aluminize.e
+	;
+
+install:
+	$move	xx_aluminize.e scopesbin$x_aluminize.e
+	;
+
+libpkg.a:
+	struct.f
+	read_fils.x 	filament.h
+	write_fils.x 	filament.h
+	read_rings.x 	filament.h
+	t_chamber.x	filament.h	<imhdr.h>	<time.h>  <mach.h>
+	t_filaments.x	filament.h			<time.h>
+	t_structim.x	<imhdr.h>	<error.h>	<time.h>
+	;

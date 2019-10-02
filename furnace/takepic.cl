@@ -1,0 +1,204 @@
+procedure takepic (fname, camera, flash)
+
+# cl script to take an oven image in FITS format with the new video system
+# Created 08MAY97 by J. M. Hill, Steward Observatory
+# allow non-existent cameras h,i,j for this script 29MAR02
+# Modified 20JUL05 to use fimhead rather than imhead.
+
+string  fname="test"	{prompt="FITS filename or prefix for the image (w/o extension)"}
+string  camera="d"	{prompt="video camera to use", enum="a|b|c|d|e|f|g|h|i|j"}
+string  flash="c"	{prompt="flashes to use (abcd or x=none)"}
+string  exposure="6"	{prompt="exposure time index", enum="0|1|2|3|4|5|6|7"}
+bool    clobber=no      {prompt="overwrite existing images?"}
+string  pname="/d1/pilot/video/"{prompt="directory path for the image"}
+int     index=1		{prompt="index for next image filename (0-9999)"}
+bool	auto=yes	{prompt="automatic filename generation using index?"}
+string  logfile=""      {prompt="logfile name for image path"}
+string  ename=".fts"		{prompt="FITS filename extension"}
+string  xname="/tmp/latest"     {prompt="temporary image location & root"}
+string  xhost=""		{prompt="image host 'crater!'"}
+int	verb=5  		{prompt="verbosity"}
+string	version="20 July 2005" {prompt="Version date of this routine"}
+
+#.help
+# Updated 12MAY00
+
+# How to take an image:
+#	fu> takepic test a cd
+#
+# -----  More details of how this script works  -----
+#
+# The unix command to take an image is:
+#    /opt/vxworks/local/tcs oven0v1 fgfl /d1/pilot/video/b0001.fts b ac 6
+
+# The appropriate vxworks software must be loaded in oven0v1 using:
+# new scheme of loading the appropriate software as of 11MAY00
+# telnet to oven0v1 as "pilot"
+#    > iam "vwuser"
+#    > < /home/pilot/misc/vxworks/video/startup.cmd
+#    > logout
+
+# The old scheme of loading was like this
+#            old	# iam "vwuser"
+#            old	# routeAdd "0.0.0.0", "128.196.32.253"
+#            old 	# < /home/skip/misc/vxworks/video/startup.cmd
+
+# For this script to work, the 'tcs' task from unix must be previously 
+# defined as a foreign task to IRAF.  (handled in furnace.cl)
+#    task $tcs = "$/opt/vxworks/local/tcs oven0v1"
+#
+# The syntax used to call tcs from IRAF in this cl script is:
+#    tcs fgfl /tmp/latestb.fts b ac 6
+# where the temporary directory path must be writeable by vwuser, 
+#    i.e. xname="/tmp/",
+# and must be located on the oven0v1 boot host (crater).
+#
+# takepic copies the temporary image into a permanent filename and
+# location. The full filepath is simply the concatenation of 
+# pname, fname and ename.  If "auto=yes", an incrementing "index"
+# number and a letter designating the "camera" are appended to the
+# string "fname" to construct a quasi-unique output filename.
+#
+# The last three words represent the camera, flash and exposure selection.
+# Cameras may be any of: a b c d e f g
+# Flashes may be any combination of: a b c d   (use x for no flash)
+# Exposure times range from 0 = 1/60 sec to 7 = 1/10000 sec.
+#
+# good camera flash combinations are:
+#  Camera A	Flash CD
+#  Camera B	Flash BC
+#  Camera C	Flash AB
+#  Camera D	Flash BD
+#  Camera E	Flash AC
+#  Camera F	Flash BD
+#  Camera G     Flash AC
+# We normally use shutter "6" = 1/4000 sec for the flash images.
+
+# Known Bugs:
+#    This script will hang waiting for the files if you run it somewhere
+#	other than on crater where the initial images are created.  To
+#	solve that problem, use "crater!" in the xhost parameter.
+#
+#    Whether you get error messages about existing images with conflicting
+#	names depends on the verbosity setting.
+#.endhelp
+
+begin
+	# define variables
+	string command, part1, part1h, part2, part3
+	string jcam, jfsh, jexp, fits
+	int jidx
+
+	# get the task parameters
+	fits = fname
+	jcam = camera
+	jfsh = flash
+	jexp = exposure
+
+	# create the full temporary filepath  (without syntax checking)
+	part1 = xname // jcam // ename
+
+	# create the full temporary filepath plus host name
+	part1h = xhost // xname // jcam // ename
+
+	# delete (clobber) the old temporary image file
+	if ( access(part1h) )
+	    delete ( part1h, go_ahead=yes, verify=no)
+
+	# create the camera and flash commands
+	part2 = jcam // " " // jfsh // " " // jexp
+
+	# create the automatically indexed filename if needed
+	if ( auto ) {
+	    jidx = index
+	    # pad index string to 4 digits
+	    if ( jidx > 999 )
+		fits = fits // index // jcam
+	    else if ( jidx > 99 )
+		fits = fits // "0" // index // jcam
+	    else if ( jidx > 9 )
+		fits = fits // "00" // index // jcam
+	    else if ( jidx > 0  )
+		fits = fits // "000" // index // jcam
+	    else 
+		fits = fits // "0000" // jcam
+	} # end if auto
+	
+	if (verb > 2)
+	print ("TAKEPIC>   FILE:", fits, "  CAMERA:", jcam, "  FLASH:", 
+		jfsh, "  EXPOSURE:", jexp)
+
+	# create the full command string
+	command = "tcs fgfl " // part1 // " " // part2
+
+	# execute the command (send it to oven0v1)
+	tcs ( "fgfl", part1, part2 )
+
+	if (verb > 3)
+	    print ("TAKEPIC>   ",command)
+
+	# if a filename was specified or generated by auto,
+	#    copy temporary image to a permanent location.
+	if ( strlen(fits) > 0 ) {
+
+	    if (verb > 3)
+		print ("TAKEPIC>   ...waiting for image on disk: ", part1h)
+
+	    # allow time for two flashes
+	    if ( jfsh != "x" )
+		sleep (20)
+	    else
+		sleep (4)
+
+	    # wait for file to appear on disk
+	    while ( !access(part1h) ) {
+		sleep (3)
+	        if (verb > 4)
+		    print ("TAKEPIC>   ...still waiting")
+	    } # end while
+
+	    # allow time for whole file to be written to disk
+	    sleep (5)  # camera a takes longer
+
+	    # create the full filepath  (without syntax checking)
+	    part3 = pname // fits // ename
+
+	    # delete the old image file, if clobbering is allowed
+	    if ( access(part3) ) {
+		if ( clobber ) {
+		    delete ( part3, go_ahead=yes, verify=no)
+	        } # end if
+		else if (verb > 3) {
+		    print ( "TAKEPIC>   error - output file exists: ", part3 )
+	            print ( "           your new image remains in: ", part1 )
+		    # increment the image index parameter
+		    if ( auto )
+			takepic.index = index + 1
+		} # end else if
+	    } # end if
+
+	    if ( !access(part3) ) {
+		# copy the image file from the temporary location
+		copy (part1h, part3, verbose=yes)
+
+		# display the image header information
+		if ( verb > 6 )
+		    fimhead (part3, long=yes, verb=0)
+		else if ( verb > 4 )
+		    fimhead (part3, long=no, verb=0)
+
+		# update the path to the last picture
+		if ( access(logfile) )
+		    print ( part3, " ", part1h, " ", index, >> logfile )
+
+		# increment the image index parameter
+		if ( auto )
+		    takepic.index = index + 1
+	    } # end if
+
+	} # end if strlen fits
+
+	if (verb > 4)
+	    print ("TAKEPIC is complete.")
+end
+

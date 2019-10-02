@@ -1,0 +1,32 @@
+# Help directory for the SCOPES packages.
+
+$aluminize		= "./aluminize/"
+$optics			= "./optics/"
+$specs			= "./specs/"
+$furnace		= "./furnace/"
+
+# Define help files for the packages.
+
+aluminize	men  = aluminize$aluminize.men,
+		hlp  = ..,
+		sys  = aluminize$aluminize.hlp,
+		pkg  = aluminize$aluminize.hd,
+		src  = aluminize$aluminize.cl
+
+optics		men = optics$optics.men,
+		hlp = ..,
+		sys = optics$optics.hlp,
+		pkg = optics$optics.hd,
+		src = optics$optics.cl
+
+specs		men = specs$specs.men,
+		hlp = ..,
+		sys = specs$specs.hlp,
+		pkg = specs$specs.hd,
+		src = specs$specs.cl
+
+furnace		men = furnace$furnace.men,
+		hlp = ..,
+		sys = furnace$furnace.hlp,
+		pkg = furnace$furnace.hd,
+		src = furnace$furnace.cl

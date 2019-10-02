@@ -1,0 +1,16 @@
+opic.exe:	opic.obj opiclib.lib 
+	link opic,,,opiclib.lib+c:\c600\lib\vcms6l.lib+c:\esgraph\es30\smsegl.lib+c:\video\mvlib1+c:\c600\lib\LLIBCE;
+
+opic.obj:	opic.c opic.h
+	cl /AL /c opic.c
+
+opiclib.obj:	opiclib.c opic.h
+	cl /AL /c opiclib.c
+	lib opiclib.lib -+opiclib.obj;
+
+opicgraf.obj:	opicgraf.c opic.h
+	cl /AL /c opicgraf.c
+	lib opiclib.lib -+opicgraf.obj;
+
+opiclib.lib:	opiclib.obj opicgraf.obj
+

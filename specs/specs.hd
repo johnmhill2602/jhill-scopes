@@ -1,0 +1,17 @@
+# Help directory for the SPECS package.
+
+$doc = "scopes$specs/doc/"
+
+# specs
+
+newspecs	hlp = doc$newspecs.hlp,		src = specs$t_newspecs.x
+xyzim		hlp = doc$xyzim.hlp,		src = specs$t_xyzim.x
+xyzdot		hlp = doc$xyzdot.hlp,		src = specs$t_xyzdot.x
+forces		hlp = doc$forces.hlp,		src = specs$forces.cl
+structure	hlp = doc$structure.hlp,	src = specs$t_structure.x
+surfit          hlp = doc$surfit.hlp,		src = specs$t_surfit.x
+synthim	        hlp = doc$synthim.hlp,		src = specs$t_synthim.x
+xyzmom	        hlp = doc$xyzmom.hlp,		src = specs$t_xyzmom.x
+rrrmom	        hlp = doc$rrrmom.hlp,		src = specs$t_rrrmom.x
+cpower          hlp = doc$cpower.hlp,		src = specs$t_cpower.x
+revisions	hlp = Revisions

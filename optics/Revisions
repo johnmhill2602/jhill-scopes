@@ -1,0 +1,23 @@
+Revisions to the OPTICS package.
+
+07 February 1991  JMH   add cass option to choose 1st order params from l2,fs
+30 July 1991      JMH   calculate alpha1 for zero spherical when alpha2 fixed
+19 June 1992      JMH   add secondary conjugate image position
+31 July 1992      JMH   corrected calculation of required beam combiner height
+07 August 1992    JMH   starting design of reimaging beam combiner
+19 September 1992 JMH   OSLO lens file in cass_sub4.x
+24 September 1992 JMH   reimaging beam combiner in cass_sub5.x
+10 October 1992   JMH   reimaging with offset focal planes
+
+13 January 1993   JMH   added depfoc.cl
+10 May 1993	  JMH   added flags for lens file options
+12 May 1993       JMH   change depfoc to SPP
+03 November 1993  JMH   working on exotic beam combiners
+06 January 1994   JMH   improvements to OSLO file format
+25 October 1994   JMH   infrared envelope diameter on primary
+04 November 1994  JMH   added autocass.cl
+07 November 1994  JMH   added CODEV seq files in cass_sub6.x
+07 November 1996  JMH   added OSLOPRO len files in cass_sub8.x
+16 October 1997   JMH   changed INDEF to INDEFD for IRAF V2.11
+19 April 1999     JMH   added offset calculation for tertiary flat
+28 August 2007    JMH   modified scale change equations by 4*magn per Rakich

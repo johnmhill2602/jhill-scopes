@@ -1,0 +1,34 @@
+# Make the OPTICS package.
+# version 22SEP92, 12MAY93, 08NOV94, 30OCT96
+
+$call	relink
+$exit
+
+update:
+	$call	relink
+	$call	install
+	;
+
+relink:
+	$update	libpkg.a
+	$omake	x_optics.x
+	$link	x_optics.o libpkg.a -lxtools  -o xx_optics.e
+	;
+
+install:
+	$move	xx_optics.e scopesbin$x_optics.e
+	;
+
+libpkg.a:
+	t_cass.x	cass_common.h		<time.h>
+	cass_sub0.x	cass_common.h
+	cass_sub1.x	cass_common.h
+	cass_sub2.x	cass_common.h
+	cass_sub3.x	cass_common.h
+	cass_sub4.x	cass_common.h
+	cass_sub5.x	cass_common.h
+	cass_sub6.x	cass_common.h
+	cass_sub7.x	cass_common.h
+	cass_sub8.x	cass_common.h
+	t_depfoc.x				<time.h>
+	;

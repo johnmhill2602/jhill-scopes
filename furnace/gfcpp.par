@@ -1,0 +1,16 @@
+dateleft,i,h,INDEF,000101,991231,left date (yymmdd); INDEF for current
+dateright,i,h,INDEF,000101,991231,right date (yymmdd); INDEF for current
+timelorigin,s,h,"",,,origin for left time: now|""
+timerorigin,s,h,"",,,origin for right time: now|""
+timeloffset,i,h,INDEF,,,offset (dhhmm) from origin for left time
+timeroffset,i,h,INDEF,,,offset (dhhmm) from origin for right time
+yhiorigin,s,h,"zero",,,origin for high y limit: average|mindata|maxdata|zero|""
+yloorigin,s,h,"zero",,,origin for low y limit: average|mindata|maxdata|zero|""
+yhioffset,r,h,120,,,offset from origin for high y limit
+ylooffset,r,h,0,,,offset from origin for low y limit
+subsample,i,h,1,1,,subsample data by n values
+append,b,h,yes,,,append to an existing plot?
+datadir,s,h,"uparm$",,,directory in which to write temporary files
+device,s,h,"stdgraph",,,output device
+version,s,h,"15FEB94",,,version date of this routine
+mode,s,h,ql,,,

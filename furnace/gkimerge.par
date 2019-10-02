@@ -1,0 +1,7 @@
+input,f,a,,,,metacode input
+output,f,a,,,,name of binary output file
+device,s,h,"stdgraph",,,output device
+rotate,b,h,no,,,rotate axes? 
+fill,b,h,no,,,fill viewport vs preserve aspect ratio
+interactive,b,h,no,,,
+cursor,*gcur,h,"",,,

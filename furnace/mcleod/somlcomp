@@ -1,0 +1,3 @@
+cc -o somltopgm -I/l/o/pbmplus/src -I/l/o/pbmplus/src/pgm -I/l/o/pbmplus/src/pbm somltopgm.c /l/o/pbmplus/src/pgm/libpgm.a /l/o/pbmplus/src/pbm/libpbm.a
+
+

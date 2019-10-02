@@ -1,0 +1,167 @@
+.help user_login Jul93 furnace
+.ih
+NAME
+user_login --- procedure for user login for oven monitoring
+.ih
+DESCRIPTION
+
+This help file describes the USER STARTUP SEQUENCE FOR THE OVEN.
+
+These instructions are for logging into crater or dorado remotely to
+monitor the oven without having pilot control capability.  If you need
+to startup the pilot programs, use \fBpilot_login\fR NOT this file.
+
+These instructions assumes that crater (or dorado) is running and that the
+oven network is intact.  These instructions also assume that the
+on-board VME computers are running.  Defaults only work for \fIoven0\fR.
+
+.ih
+STEP 0: Connect to crater or dorado
+
+.ls From a PC on the network:
+.nf
+C: CD C:\EM4010
+C: EM
+.fi
+.le
+
+.ls From another xterm window:
+.nf
+cl> rlogin crater
+.fi
+.le
+
+.ls From another computer:
+% telnet crater
+.le
+
+.ih
+STEP 1: Login as yourself 
+
+The login starts with a blank screen that says:
+"crater login:" or "dorado login:"
+You must have an oven account.
+
+After entering the username and password, this should give you a
+window running IRAF
+
+To logoff, say \fBlog\fR.
+
+.ih
+STEP 2: Load the external IRAF packages for the oven.
+
+You will want to load the \fBmirror\fR
+package in each xterm window (or at least each one you plan to use).
+
+.ls Example
+.nf
+cl>
+cl> mirror
+mi>
+.fi 
+.le
+
+The "mi>" prompt indicates that the \fBmirror\fR package is loaded.
+Type "?" for a list of the tasks in the active package.
+.ls Example
+.nf
+mi> ?
+      odisp   oven    ovend   oveng   ovenw
+      ograph  ovenb   ovene   ovenp   tcmark 
+mi>
+.fi
+.le
+
+.ih
+STEP 3: Check to see if shared memory segments exist. (optional)
+
+Check these with "ipcs".  There should be 3 segments, one each for on-board
+computers v0, v1 and v2.
+
+.ls Example
+.nf
+mi> !ipcs
+IPC status from crater as of Thu Jun  6 18:25:12 1991
+T     ID     KEY        MODE       OWNER    GROUP
+Message Queues:
+Shared Memory:
+m    300 0x00000100 --rw-r--r--    pilot    other
+m    301 0x00000101 --rw-r--r--    pilot    other
+m    202 0x00000102 --rw-r--r--    pilot    other
+Semaphores:
+mi>
+.fi
+.le
+
+Shared memory segments must be created and initialized by pilot.
+If they don't exist, the oven isn't running.
+
+.ih
+STEP4:  Check for the data and error daemons. (optional)
+
+If you only want to check for the oven daemons, you can say:
+.ls Example
+.nf
+mi> !ps -aux | grep mirror		(shows all mirror tasks)
+mi>
+mi> !ps -ax | grep N			(shows all background tasks)
+mi>
+.fi
+.le
+
+For a brief description of the daemon's function type: \fBhelp ovend\fR
+In normal operation, there are 7 daemons running.
+Oven tasks appear as "/usr/iraf/mirror/bin.sparc/x_mirror.e"
+The \fBcl\fRs in your xterm windows appear as "/usr/iraf/bin.sparc/cl.e"
+Background tasks will have an "N" in the STAT column.  Note that each
+background daemon has an associated \fBcl\fR.
+
+.ih
+STEP5:  Run the oven program.
+
+.ls Example
+.nf
+mi> oven readonly=yes
+.fi
+.le
+The blue window will now continue the oven program talking to
+the shared memory segment for v0.  If the v0 computer is functioning,
+and \fBovend\fR is running,
+you should get fresh data each minute.
+
+If an oven task crashes, use \fBflpr\fR to flush the process cache before
+restarting.  \fBunlearn\fR resets the default parameters for the task.
+.ls Example
+.nf
+mi> unlearn oven
+mi> oven ncomp=0
+.fi
+.le
+
+.ih
+STEP 6: Start the oven cron task. (if you have multiple windows)
+
+Start the cron task in the purple window (border):
+.ls Example
+.nf
+mi> ovenc &
+.fi
+.le
+ograph and odisp should now display data at appropriate intervals.
+ 
+To stop the cron task or another daemon, use the IRAF kill
+command in the relevant window: \fBkill\fR x
+(where x is the job number [1-4])
+
+.ih
+BUGS
+.ih
+RELATED MIRROR HELP TASKS
+oven, ovend, ovenw, ovenc, pilot_login
+.ih
+RELATED IRAF HELP TASKS
+jobs, kill, spy, lpar, unlearn, flpr, prc, cursors
+.ih
+RELATED UNIX MAN PAGES
+xterm, ps, grep, ipcs, w, X11, saoimage
+.endhelp

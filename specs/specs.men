@@ -1,0 +1,12 @@
+	newspecs --- calculate wavefront specifications based on atmosphere
+	forces --- compute mirror support force trajectories
+	cpower --- combine numerical values with a specified exponent
+	structure --- measure structure function of a list of points
+	surfit --- fit a polynomial surface to xyz points
+	xyzim --- interpolate xyz points into an image (circle mask)
+	xyzdot --- interpolate xyz points into an image (point mask)
+	synthim --- generate synthetic aberration images (circle mask)
+	xyzmom -?- generate moment images from xyz points
+	junk --- a spurious computational task
+	rrrmom -?- wierd radial moment from xyz points
+		-?- means this task is not yet implemented

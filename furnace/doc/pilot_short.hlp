@@ -1,0 +1,62 @@
+.help pilot_short Nov96 furnace
+.ih
+NAME
+pilot_short --- terse procedure for pilot login and oven startup
+.ih
+DESCRIPTION
+This help file describes the PILOT STARTUP SEQUENCE FOR THE OVEN.
+See \fBpilot_login\fR for more verbose and helpful instructions.
+
+.ih
+STEP 1: login to the console as pilot.
+.ih
+STEP 2: Create shared memory segments if needed
+Run the oven task for all three computers as shown below.  Before you
+"exit" from each \fBoven\fR, use the "Database" menu to "Read
+parameters from disk".
+.ls In the blue window:
+.nf
+mi> oven ncomp=0	(Exit)
+mi> oven ncomp=1	(Exit)
+mi> oven ncomp=2	(Exit)
+.fi
+.le
+.ih
+STEP 3:  Start the data and parameter daemons.
+But, don't start background jobs if they are already running!
+Check by using: "!ps -efc | grep pilot"
+.ls In the blue window:
+.nf
+mi> ovenp &
+mi> ovenb &
+mi> ovend &
+mi> oven 
+.fi
+.le
+.ih
+STEP 4:	Start the error daemons.
+.ls In the red window:
+.nf
+mi> ovene ncomp=0 offset=10 & 
+mi> ovene ncomp=1 offset=11 &
+mi> ovene ncomp=2 offset=12 &
+mi> oveng & 
+mi> oven offset=14
+.fi
+.le
+.ih
+STEP 5: Start the oven cron task.
+Start the cron task in the purple window (border): "ovenc &"
+.ih
+RELATED MIRROR HELP TASKS
+oven, ovenb, ovenp, ovend, ovene, oveng, ovenw, ovenc, ovenr
+.ih
+RELATED FURNACE HELP TASKS
+pilot_login, user_login, dead_sun
+.ih
+RELATED IRAF HELP TASKS
+jobs, kill, spy, lpar, unlearn, flpr, prc, cursors
+.ih
+RELATED UNIX MAN PAGES
+xterm, ps, grep, ipcs, ipcrm, openwin, kill, w, netstat, X11
+.endhelp

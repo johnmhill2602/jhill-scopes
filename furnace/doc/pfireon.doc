@@ -1,0 +1,52 @@
+PREFIRE CHECKLIST (POWER PANELS ON)
+
+I.  Power Systems
+
+    A.  Grid Power checks								Man  Hours
+
+____    1.  Check Panel Meters for proper display.						(          )
+
+    B.  Generator Power Checks
+
+____    1.  Switching Test - make sure that all the configurations work as planned.		(          )
+____    2.  Check for correct phasing.  Both generators.					(          )
+____    3.  Check Panel Meters for proper display.						(          )
+____    4.  Make sure control room computers, etc. run on generator power.			(          )
+           Note:  Generator power is also checked by software when generator are on line.
+                                                                                                
+    C.  Power Phasing Monitor Checks
+
+____    1.  In the power panels there are 3 fuses for each source.  These need to be		(          )
+                  checked to see if the software recognizes the correct phase for each.
+                  This needs to be done on each power panel.
+
+     D.  Rotation Power Checks
+
+____    1.  Switch Rotation Power to different power panel check.				(          )
+____    2.  Drive #1 & 2 power check.							(          )
+   
+              
+   II.  Heater  Control System Checks
+
+      A.  Power Panels							
+          1.  Check to see if both fans are blowing.
+____	   a.  In red cabinet underneath.						(          )
+   
+____    2.  Short across one of the SSR's to see if stuck on heater alarm work for  		(          )
+              siren and software. (BY AUTHORIZED PERSONNEL ONLY)
+
+
+     B.  Heater Control Logic Checks								
+____    1.  Check 110-120 VAC coming out of the transformer which might indicate		(          )
+	   transformer malfunction.
+
+
+    C.  Rotation Control System Checks								
+
+____  1. Switch Rotation power to different power panel check.				(          )
+____  2. Drive #1 & #2 power check.							(          )
+
+
+
+					1
+  

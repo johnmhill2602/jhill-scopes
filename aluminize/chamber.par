@@ -1,0 +1,13 @@
+fifile,s,a,,,,Input filament file name
+outimg,s,a,,,,Output image file name
+gridcols,i,h,128,1,,Number of columns in output image
+gridrows,i,h,128,1,,Number of rows in output image
+dmirror,r,h,8408.0,0.0,10000.0,Mirror diameter (mm)
+fnum,r,h,1.147,0.0,,Mirror focal ratio
+asphere,r,h,-1.0,-9.9,1.0,Mirror asphere (-1 = parabolic)
+thick,r,h,100.0,0.0,,Coating thickness (nm)
+load,r,h,1.0,,,Filament load normalization (g)
+density,r,h,2.7,2.0,3.0,Specific gravity of aluminum
+baffles,b,h,no,,,baffle the filaments?
+bangle,r,h,0.0,0.0,90.0,Filament baffle angle (degrees 0=no baffle)
+verbosity,i,h,4,0,,Output verbosity parameter
