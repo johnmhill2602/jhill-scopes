@@ -32,6 +32,10 @@
 #       added ghigh_gmt4 15SEP15
 #	added ghigh_gmt5 04NOV17
 #	added ghigh_vgt1 26APR19
+#	added psi2png.cl, mkpngc.cl 20JAN21
+#	added ghigh_gmt6 03MAR21
+#	added convpng 06MAR21
+
 
 # Load necessary packages
 
@@ -64,8 +68,10 @@ task	gfvpp = furnace$gfvpp.cl
 task	gfcpp = furnace$gfcpp.cl
 task	$gcamera = furnace$gcamera.cl
 task	psi2gif = furnace$psi2gif.cl
+task	psi2png = furnace$psi2png.cl
 task	mkgifc = furnace$mkgifc.cl
-task	spinplot = furnace$spinplot.cl
+task	mkpngc = furnace$mkpngc.cl
+#task	spinplot = furnace$spinplot.cl
 task    $mkindex=furnace$mkindex.cl
 task    $mygraph=furnace$mygraph.cl
 task	$galumttmp = furnace$galumttmp.cl
@@ -104,6 +110,7 @@ task	$ghigh_gmt2 = furnace$ghigh_gmt2.cl
 task	$ghigh_gmt3 = furnace$ghigh_gmt3.cl
 task	$ghigh_gmt4 = furnace$ghigh_gmt4.cl
 task	$ghigh_gmt5 = furnace$ghigh_gmt5.cl
+task	$ghigh_gmt6 = furnace$ghigh_gmt6.cl
 task	$ghigh_vgt1 = furnace$ghigh_vgt1.cl
 task	$ghigh_vgt1r = furnace$ghigh_vgt1r.cl
 task	$ghigh_lotis = furnace$ghigh_lotis.cl
@@ -112,6 +119,8 @@ task	$ghigh_mag2 = furnace$ghigh_mag2.cl
 task	$ghigh_lbt1 = furnace$ghigh_lbt1.cl
 task	$ghigh_mag1 = furnace$ghigh_mag1.cl
 task	$ghigh_mmt = furnace$ghigh_mmt.cl
+task    convpng = furnace$convpng.cl
+
 
 # foreign task for video images
 task    $tcs = "$/opt/vxworks/local/tcs oven0v1"
