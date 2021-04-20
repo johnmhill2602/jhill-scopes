@@ -1,0 +1,8 @@
+input,s,a,,,,pathname of input .mc file
+output,s,h,,,,pathname of output .png file (leave blank for default)
+clobber,b,h,no,,,clobber existing output file
+newer,b,h,no,,,require metatcode file to be newer (otherwise skip)
+black,b,h,no,,,edit metacode to convert yellow/green fonts to black
+verb,i,h,3,0,99,verbosity
+version,s,h,"15MAR21",,,version date of this routine
+mode,s,h,ql,,,

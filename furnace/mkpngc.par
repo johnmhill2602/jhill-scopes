@@ -1,0 +1,4 @@
+ologfile,s,h,"home$mkpngc.log",,,mkpngc logfile
+delay,i,h,30,0,,delay between sequences (seconds)
+version,s,h,"20JAN21",,,version date of this routine
+mode,s,h,ql,,,
